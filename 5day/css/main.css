@@ -1,0 +1,4 @@
+@import url("./box.css"); /* css안에서 다른 css파일을 부를 때 사용  */
+h1 {
+    color: #4169e1;
+}

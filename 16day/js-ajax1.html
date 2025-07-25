@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // vanilla ajax 호출 예제(기능은 fetch함수와 동일)
+    let xhr = new XMLHttpRequest(); // XMLHttpRequest 객체 생성
+
+    // ajax 응답 설정
+    xhr.onreadystatechange = function() {
+      if(xhr.readyState === 4 && xhr.status === 200) { // 정상적으로 호출이 되어 응답이 왔다면
+        // 브라우저 콘솔에 출력
+        console.log(xhr.responseText);
+
+        // 브라우저에 출력
+        document.getElementById('test1').textContent = xhr.responseText;
+      }
+    }
+    xhr.open('GET', 'https://dummyjson.com/products', true); // 요청 설정
+    xhr.send(); // 실제 요청 전송
+  </script>
+</head>
+<body>
+  <div id="test1"></div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    const value = 'hello';  // global scope
+
+    // 함수 선언
+    function myFunction() {
+      var value = 'bye!'; // myFunction scope
+      console.log(value);     // bye!
+
+      const anotherValue = 'world'; // myFunction scope
+      // 내부 함수 선언
+      function functionInside() {   //
+        var value2 = 'fun';  // functionInside scope
+        console.log('functionInside: ');
+        console.log(value);           // function scope이므로 fun이 출력
+        console.log(anotherValue);    // function scope이므로 world가 출력
+      }
+      functionInside(); // 함수 호출      
+
+      if (true) {
+        var value = 'world';    // error
+        console.log('블록 scope:')
+        console.log(value);  // world(O) hello(X) bye(X) fun(X)
+      }
+      console.log(value);  // world(O) hello(X) bye(X) fun(X)
+    }
+
+    myFunction(); // 함수 호출
+    //functionInside(); // 함수 호출 안됨
+    console.log('global scope: ');
+    console.log(value);       // global scope이므로 hello가 출력
+    console.log(anotherValue); // 함수 안에서만 사용이 가능하도록 scope가 되어 있으므로 error
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 속성에 disabled가 있는 css코드 적용 */
+        [disabled] {
+            color: red;
+        }
+        /* 속성에 readonly가 있는 css코드 적용 */
+        [readonly] {
+            color: blue;
+        }
+        /* 속성에 type이 있는 css코드 적용 */
+        [type] {
+            color: yellow;
+        }
+        /* 속성에 type="password" 있는 css코드 적용 */
+        [type="password"] {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+  <input type="text" value="heropy" />
+  <input type="password" value="1234" />
+  <input type="text" value="안녕~" disabled />
+  <input type="text" value="오하요~" readonly /> <!-- 읽기 전용 -->
+</body>
+</html>

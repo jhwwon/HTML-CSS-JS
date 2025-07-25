@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html, body {
+      margin: 30px;
+      padding: 0;
+    }
+    
+    .wrapper {
+      width: 450px;
+      height: 350px;
+      background-color: violet;
+      /* position: relative; */
+    } 
+    .container {
+      width: 300px;
+      height: 300px;
+      background-color: royalblue;
+      position: relative;
+    }
+    .container .item {
+      border: 3px dashed black;
+    }
+    .container .item:nth-child(1) {
+      width: 100px;
+      height: 100px;
+      background-color: yellow;
+      position: absolute;
+      z-index: 3;
+    }
+    .container .item:nth-child(2) {
+      width: 140px;
+      height: 100px;
+      background-color: orange;
+      position: relative;  /* --> static으로 하면 위치가 바뀜 */
+      top: 30px;
+      left: 30px;
+      z-index: 1;
+      /* display: none; */
+    }
+    .container .item:nth-child(3) {
+      width: 70px;
+      height: 120px;
+      background-color: brown;
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      z-index: 2;
+    } /*z-index는 클래스가 겹치지 않은 상태에서 설정하면 botton이나 다른 위치를 수정하지 않아도 자동으로 위치가 옯겨지면서 z-index를 보여주는건지*/
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="container">
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+    </div>
+  </div>
+</body>
+</html>
+
+<!-- static은 진덱스가 안벅힘-->

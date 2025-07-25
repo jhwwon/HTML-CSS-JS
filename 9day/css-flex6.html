@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      /* width: 200px; */
+      height: 400px;
+      background-color: royalblue;
+      display: flex;
+      gap: 10px; /*container에서 item들끼리의 여백에만 적용됨*/
+    }
+
+    .container .item {
+      width: 100px;
+      height: 100px;
+      border: 3px dashed red;
+      background-color: orange;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-weight: 700;
+      font-size: 22px;
+      /* margin: 4px; */
+      flex-basis: 0; /*배율을 주지 않는다는 의미 기본적으로 0을 많이 줌*/
+    }
+
+    /* .container .item:nth-child(1) { flex: flex-grow flex-shrink flex-basis} */
+    .container .item:nth-child(1) { flex: 1 0 0}  /*이렇게 된 형식을 가장 많이 씀*/
+    .container .item:nth-child(2) { flex: 1 1 auto; }
+    .container .item:nth-child(3) { flex: 2 1 auto; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="item">Good</div>
+    <div class="item">A</div>
+    <div class="item">Hello</div>
+  </div>
+</body>
+</html>

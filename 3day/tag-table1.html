@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <figure>
+    <table border="1"> <!-- 행과 열 태그들을 사용하기 전 사용하는 테이블 태그 -->
+      <caption>
+        <strong>국가대표 선수 명단</strong>
+        <br>
+        남자 마라톤
+      </caption>
+      <thead>
+        <tr>   <!-- 1행 태그(table row) -->
+          <th>한국 선수</th>  <!-- 행의 머리말 태그(table head)-->
+          <th>일본 선수</th>
+          <th>미국 선수</th>
+        </tr>
+      </thead>
+      <tbody id="test1">
+        <tr>   <!-- 2행 태그(table row) -->
+          <!-- rowspan은 행을 합치고자 할 때 사용하는 태그 -->
+          <td rowspan="3">김철수</td>     <!-- 행 안의 각 셀 태그 -->
+          <!-- colspan은 열을 합치고자 할 때 사용하는 태그 -->
+          <td colspan="2">오오다</td>
+        </tr>
+        <tr>   
+          <td colspan="2" rowspan="2">오오다2</td>
+        </tr>
+        <tr>   
+          
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>세계 랭킹 5위</td>
+          <td>세계 랭킹 8위</td>
+          <td>세계 랭킹 2위</td>
+        </tr>
+      </tfoot>
+    </table>
+  </figure>
+</body>
+</html>

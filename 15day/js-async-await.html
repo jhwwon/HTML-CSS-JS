@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function sleep(ms) {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          console.log('sleep실행');
+          resolve();
+        }, ms);
+      });
+    }
+
+    // async 선언한 함수는 promise객체를 반환
+    async function process() {
+      console.log('안녕하세요!');
+      // await를 넣어주면(함수 선언한 곳에서는 async가 반드시 있어야 함) sleep함수가 끝나기까지 기다림
+      await sleep(1000);  // promise 객체로 받은 함수들은 await 사용이 가능    
+      console.log('반갑습니다.');
+    }
+    
+    process().then(() => {
+      console.log('process끝남');
+    });
+
+    async function makeError() {
+      await sleep(1000);
+      throw new Error();
+    }
+
+    async function process2() {
+      try {
+        await makeError();
+      } catch(e) {
+        console.error(e);
+      }
+    }
+
+    process2();
+
+    // 함수표현식 async
+    const process3 = async () => {
+      await sleep(1000);
+
+      return 'sleep종료'
+    }
+
+    process3();
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

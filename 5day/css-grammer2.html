@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*모든 요소 태그를 가리킴*/
+        /* * { 
+            color: red;
+        } */
+
+        /* li 태그만 가리킴 */
+        /* li {
+            color: aqua;
+        } */
+
+        /* class 선택자만 가리킴 */
+        /* .orange {
+            color: purple;
+        } */
+
+        /* id 선택자만 가리킴 */
+        /* #orange {
+            color: red;
+        } */
+
+        /* span태그이면서 class이름이 orange인거만 가리킴 */
+        /* span.orange {
+            color: gray;
+        } */
+        /* p태그이면서 id이름이 abc인거만 가리킴 */
+        /* p#abc {
+            color: pink;
+        } */
+
+        /* ul태그 밑의 자식들 중에 class이름이 orange인거만 가리킴 */
+        /* ul > .orange{
+            color: brown;
+        } */
+        /* ul태그 밑의 자식들이 li인거만 가리킴 */
+        /* ul > li{
+            color: brown;
+        } */
+        /* ul태그 밑의 자식들중 id이름이 orange인거만 가리킴 */
+        /* ul > #orange {
+            color: brown;
+        } */
+
+        /* div 하위에 있는 모든 후손들 증에서 class이름이 orange인거만 가리킴 */
+        /* div .orange {
+            color:blueviolet;
+        } */
+
+        /* div span {
+            color: red;
+        } */
+
+        /* class 이름 orange인 태그의 바로 인접한 태그 하나에만 적용 */
+        /* .orange + li {
+            color: red;
+        } */
+
+    /* class이름 orange인 태그의 다음(next) 형제 태그에 적용 */
+        .orange ~ li {
+        color: red;
+    }
+
+    /* 빈칸없음, 빈칸, +, ~, ., #, > */
+    </style>
+</head>
+<body>
+    <div>
+        <ul>
+            <li>사과</li>
+            <li>딸기</li>
+            <li class="orange" id="orange">오렌지</li> <!-- id는 중복된 값을 가질 수 없음 -->
+        </ul>
+        <div>당근</div>
+        <p id="abc">토마토</p>
+        <span class="orange">오렌지</span>
+    </div>
+    <span class="orange">오렌지</span>
+    <br>
+
+    <ul>
+        <li>딸기</li>
+        <li>수박</li>
+        <li class="orange">오렌지</li>
+        <li>망고</li>
+        <li>사과</li> 
+    </ul>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- 외부 링크 CSS 방식 -->
+  <link rel="stylesheet" href="./css/main.css" />
+  <link rel="stylesheet" href="./css/common1.css" />
+  <style>
+    /* @import url("./css/box.css"); 이렇게 해도 됨*/ 
+    /* CSS 주석 */
+    /* CSS 기본문법 
+      선택자(태그, class이름, id이름) {
+        css속성코드이름1: 값; 
+        css속성코드이름2: 값; 
+        css속성코드이름3: 값; 
+        css속성코드이름4: 값; 
+      }
+    */
+    /* 내장 방식의 CSS 코드 */
+    div {
+      font-size: 20px;  /* 글자크기 20px로 지정 */
+      color: red;     /* 글자색깔 빨간색으로 지정 */
+    }
+
+    span {  }    
+  </style>
+</head>
+<body>
+  <!-- style은 인라인 방식의 CSS코드 -->
+  <div style="" class="" id="">글자가 빨간색이고 글자크기는 20px</div>
+  <span style="font-size: 40px; color: blue;">글자가 파란색이고 글자크기는 40px</span>
+  <div>안녕하세요</div>
+  <h1>안녕하세요</h1>
+
+  <h2 class="box">배경은 빨간색, padding은 20px</h2>
+  <h3>Hello</h3>
+</body>
+</html>

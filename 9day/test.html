@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>회원가입 | 마켓컬리</title>
+  <style>
+    body {
+      font-family: 'Noto Sans KR', Arial, sans-serif;
+      background: #fff;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    /* 헤더 */
+    .header {
+      width: 100%;
+      border-bottom: 1px solid #eee;
+      padding: 0;
+      background: #fff;
+    }
+    .header-top {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      font-size: 0.95rem;
+      padding: 12px 0 0 0;
+      max-width: 1200px;
+      margin: 0 auto;
+      color: #888;
+    }
+    .header-top a {
+      color: #7b4ad1;
+      text-decoration: none;
+      margin-left: 18px;
+      font-weight: 400;
+    }
+    .header-main {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 18px 0 10px 0;
+    }
+    .logo {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.1rem;
+      color: #7b4ad1;
+      font-weight: 700;
+      margin-right: 30px;
+      letter-spacing: 1px;
+    }
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 1rem;
+      color: #333;
+    }
+    .menu a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 400;
+    }
+    .search-bar {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 32px;
+    }
+    .search-bar input[type="text"] {
+      width: 350px;
+      padding: 10px 15px;
+      border: 1.5px solid #a175cc;
+      border-radius: 25px 0 0 25px;
+      font-size: 1rem;
+      outline: none;
+      background: #fff;
+      color: #333;
+      border-right: none;
+    }
+    .search-bar button {
+      padding: 10px 18px;
+      border: 1.5px solid #a175cc;
+      border-left: none;
+      border-radius: 0 25px 25px 0;
+      background: #fff;
+      color: #7b4ad1;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+    .header-icons {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 1.3rem;
+      color: #888;
+    }
+    .header-icons span {
+      cursor: pointer;
+    }
+    .sub-menu {
+      display: flex;
+      justify-content: center;
+      gap: 38px;
+      font-size: 1.08rem;
+      color: #333;
+      background: #fff;
+      border-bottom: 1px solid #eee;
+      padding: 14px 0 10px 0;
+    }
+    .sub-menu a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 400;
+    }
+    /* 회원가입 폼 */
+    .signup-container {
+      max-width: 480px;
+      margin: 56px auto 0 auto;
+      background: #fff;
+      padding: 0 0 60px 0;
+    }
+    .signup-title {
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 500;
+      margin-bottom: 36px;
+      margin-top: 10px;
+      letter-spacing: -1px;
+    }
+    .required-info {
+      text-align: right;
+      font-size: 0.98rem;
+      color: #a175cc;
+      margin-bottom: 18px;
+    }
+    form {
+      width: 100%;
+    }
+    .form-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+    .form-label {
+      width: 110px;
+      font-size: 1.05rem;
+      color: #333;
+      font-weight: 500;
+      text-align: left;
+      margin-right: 10px;
+    }
+    .form-label .required {
+      color: #a175cc;
+      margin-left: 1px;
+      font-size: 1.05rem;
+    }
+    .form-input {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 11px 13px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+      outline: none;
+      box-sizing: border-box;
+      transition: border 0.2s;
+      background: #fafafa;
+      color: #333;
+    }
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+      border: 1.5px solid #a175cc;
+      background: #fff;
+    }
+    select {
+      padding: 11px 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+      background: #fafafa;
+      color: #333;
+      min-width: 110px;
+      margin-left: 6px;
+    }
+    .form-input button {
+      padding: 0 16px;
+      height: 40px;
+      background: #fff;
+      color: #a175cc;
+      border: 1.5px solid #a175cc;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-left: 6px;
+    }
+    .form-input button:disabled {
+      background: #f5f5f5;
+      color: #bbb;
+      border: 1.5px solid #eee;
+      cursor: default;
+    }
+    .address-info {
+      font-size: 0.95rem;
+      color: #888;
+      margin-top: 6px;
+    }
+    .radio-group {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-left: 4px;
+    }
+    .radio-group label {
+      display: flex;
+      align-items: center;
+      font-size: 1rem;
+      margin-bottom: 0;
+      cursor: pointer;
+      color: #333;
+      font-weight: 400;
+    }
+    .radio-group input[type="radio"] {
+      accent-color: #a175cc;
+      margin-right: 4px;
+    }
+    .birth-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      width: 100%;
+    }
+    .birth-row input[type="text"] {
+      width: 70px;
+      text-align: center;
+    }
+    .form-footer {
+      margin-top: 32px;
+      text-align: center;
+    }
+    .form-footer button {
+      background: #7b4ad1;
+      color: #fff;
+      border: none;
+      padding: 15px 0;
+      border-radius: 4px;
+      width: 100%;
+      font-size: 1.15rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .form-footer button:hover {
+      background: #a175cc;
+    }
+    /* 반응형 */
+    @media (max-width: 600px) {
+      .signup-container {
+        max-width: 98vw;
+        padding: 0 8px 60px 8px;
+      }
+      .header-main, .header-top, .sub-menu {
+        max-width: 100vw;
+        padding-left: 8px;
+        padding-right: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 헤더 -->
+  <div class="header">
+    <div class="header-top">
+      <a href="#">회원가입</a>
+      <a href="#">로그인</a>
+      <a href="#">고객센터 ▼</a>
+    </div>
+    <div class="header-main">
+      <div class="logo">Kurly</div>
+      <div class="menu">
+        <a href="#">마켓컬리</a>
+        <a href="#">뷰티컬리</a>
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="검색어를 입력해주세요">
+        <button>🔍</button>
+      </div>
+      <div class="header-icons">
+        <span>📍</span>
+        <span>♡</span>
+        <span>🛒</span>
+      </div>
+    </div>
+    <div class="sub-menu">
+      <a href="#">카테고리</a>
+      <a href="#">신상품</a>
+      <a href="#">베스트</a>
+      <a href="#">알뜰쇼핑</a>
+      <a href="#">특가/혜택</a>
+      <a href="#" style="color:#a175cc; font-weight:500;">샛별배송 안내</a>
+    </div>
+  </div>
+  <!-- 회원가입 폼 -->
+  <div class="signup-container">
+    <div class="signup-title">회원가입</div>
+    <div class="required-info"><span style="color:#a175cc;">*</span> 필수입력사항</div>
+    <form>
+      <div class="form-row">
+        <div class="form-label">아이디<span class="required">*</span></div>
+        <div class="form-input">
+          <input type="text" placeholder="아이디를 입력해주세요">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-label">비밀번호<span class="required">*</span></div>
+        <div class="form-input">
+          <input type="password" placeholder="비밀번호를 입력해주세요">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-label">비밀번호확인<span class="required">*</span></div>
+        <div class="form-input">
+          <input type="password" placeholder="비밀번호를 한번 더 입력해주세요">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-label">이름<span class="required">*</span></div>
+        <div class="form-input">
+          <input type="text" placeholder="이름을 입력해 주세요">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-label">이메일<span class="required">*</span></div>
+        <div class="form-input" style="gap:0;">
+          <input type="text" placeholder="예: marketkurly" style="flex:1;">
+          <select style="margin-left:8px;">
+            <option>@ 선택하기</option>
+            <option>@naver.com</option>
+            <option>@gmail.com</option>
+            <option>@hanmail.net</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-label">휴대폰<span class="required">*</span></div>
+        <div class="form-input">
+          <input type="text" placeholder="숫자만 입력해주세요.">
+          <button type="button" disabled>인증번호 받기</button>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-label">주소<span class="required">*</span></div>
+        <div class="form-input">
+          <input type="text" placeholder="" style="border-color:#a175cc;">
+          <button type="button" style="background:#fff;color:#a175cc;border:1.5px solid #a175cc;">주소 검색</button>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-label"></div>
+        <div class="form-input">
+          <div class="address-info">배송지에 따라 상품 정보가 달라질 수 있습니다.</div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-label">성별</div>
+        <div class="form-input radio-group">
+          <label><input type="radio" name="gender">남자</label>
+          <label><input type="radio" name="gender">여자</label>
+          <label><input type="radio" name="gender" checked>선택안함</label>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-label">생년월일</div>
+        <div class="form-input birth-row">
+          <input type="text" placeholder="YYYY" maxlength="4">
+          <span>/</span>
+          <input type="text" placeholder="MM" maxlength="2">
+          <span>/</span>
+          <input type="text" placeholder="DD" maxlength="2">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-label">추가입력 사항</div>
+        <div class="form-input">
+          <input type="text" placeholder="친구초대 추천인 아이디">
+        </div>
+      </div>
+      <div class="form-footer">
+        <button type="submit">가입하기</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

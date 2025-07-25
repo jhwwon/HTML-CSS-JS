@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 기본 세팅 */
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    .top-bar span:nth-child(1):hover,  
+    .top-bar span:nth-child(2):hover,
+    .top-right span:nth-child(1):hover,  
+    .top-right span:nth-child(2):hover
+    {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .footer div:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    /* 전체 페이지 wrapper */
+    .page-container {
+      min-height: 100%;
+      padding-bottom: 120px; /* footer 높이만큼 여백 확보 */
+      box-sizing: border-box;
+    }
+
+    .top-bar {
+      font-size: 14px;
+      padding: 15px 20px;
+      text-align: left;
+    }
+
+    .top-bar span {
+      margin-right: 15px;
+    }
+
+    .top-right {
+      float: right;
+    }
+
+    .main {
+      margin-top: 100px;
+    }
+
+    .logo {
+      width: 272px;
+    }
+
+    .google-logo {
+      font-size: 80px;
+      font-weight: 600;
+      font-family: 'Arial', sans-serif;
+      letter-spacing: -10px;
+    }
+
+    .g { color: #4285F4; }
+    .o1 { color: #EA4335; }
+    .o2 { color: #FBBC05; }
+    .g2 { color: #34A853; }
+    .l { color: #4285F4; }
+    .e { color: #EA4335; }
+
+    .search-box {
+      margin-top: 30px;
+    }
+
+    .search-wrapper {
+      width: 580px;
+      margin: 0 auto;
+    }
+
+    .search-input {
+      width: 100%;
+      height: 40px;
+      font-size: 16px;
+      padding-left: 20px;
+      padding-right: 100px; /* 아이콘 공간 확보 */
+      border: 1px solid #ccc;
+      border-radius: 24px;
+      box-sizing: border-box;
+      text-indent: 30px;
+    }
+
+    .search-left-icons {
+      margin-top: -32px;
+      margin-left: -90%;
+      font-size: 18px;
+    }
+
+    .search-right-icons {
+      margin-top: -24px;
+      margin-left: 80%;
+      font-size: 18px;
+    }
+
+    .buttons {
+      margin-top: 30px;
+    }
+
+    .buttons button {
+      margin: 0 6px;
+      padding: 10px 20px;
+      border: 1px none transparent;
+      background-color: #f8f9fa;
+      border-radius: 4px;
+      cursor: pointer;
+      box-sizing: border-box;
+    }
+
+    .buttons button:hover {
+      margin: 0 6px;
+      padding: 10px 20px;
+      border: 1px solid lightgray;
+      background-color: #f8f9fa;
+      border-radius: 4px;
+      cursor: pointer;
+      box-sizing: border-box;
+    }
+
+    .notice {
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    /* footer는 실제로는 아래 고정 */
+    .footer {
+      height: 120px;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background-color: #f2f2f2;
+      font-size: 14px;
+      color: #666;
+      padding: 20px 0;
+      box-sizing: border-box;
+    }
+
+    .footer-top {
+      text-align: left;
+      padding-left: 30px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .footer-bottom {
+      padding: 20px;
+      height: 20px;
+    }
+
+    .footer-left {
+      float: left;
+    }
+
+    .footer-right {
+      float: right;
+    }
+
+    .footer-left-item {
+      float: left;
+      margin: 0px 10px;
+    }
+
+    .footer-right-item {
+      float: left;
+      margin: 0px 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-container">  <!-- 전체화면 class-->
+    <div class="top-bar"> <!-- 상단에 있는 google정보 부터 해당되는 bar class-->
+      <span>Google 정보</span>
+      <span>스토어</span>
+      <div class="top-right"> <!-- top-bar중에서도 right-bar class-->
+        <span>Gmail</span>
+        <span>이미지</span>
+        <span>🔬</span>
+        <span>⬛</span>
+        <span>👤</span>
+      </div>
+    </div>
+
+    <div class="main">  <!-- 중간에 있는 mainpage class -->
+  <!--       <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="Google" class="logo"> -->
+        <div class="google-logo"> <!-- logo class: 글자 하나하나를 span태그로 형성 -->
+          <span class="g">G</span>
+          <span class="o1">o</span>
+          <span class="o2">o</span>
+          <span class="g2">g</span>
+          <span class="l">l</span>
+          <span class="e">e</span>
+        </div>
+      
+      <div class="search-box"> <!-- 중간에 있는 검색창 class-->
+        <div class="search-wrapper"> <!-- 겉에 한번 wrapper 로 해줌 -->
+          <input type="text" class="search-input" placeholder="검색어를 입력하세요.">
+          <div class="search-left-icons">🔍</div>
+          <div class="search-right-icons">🔲 🎤 🎧</div>
+        </div>
+      </div>
+
+      <div class="buttons"> <!-- 중간에 google검색이랑 멘트 class-->
+        <button>Google 검색</button>
+        <button>I’m Feeling Lucky</button>
+      </div>
+
+      <div class="notice">
+        <span style="color:red">지금 시청해 보세요!</span>
+        <span> Google I/O 2025에서 최신 AI 혁신 기술을 공개합니다</span>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-top">대한민국</div>
+      <div class="footer-bottom">
+        <div class="footer-left">
+          <div class="footer-left-item">광고</div>
+          <div class="footer-left-item">비즈니스</div>
+          <div class="footer-left-item">검색의 원리</div>
+        </div>
+        <div class="footer-right">
+          <div class="footer-right-item">개인정보처리방침</div>
+          <div class="footer-right-item">약관</div>
+          <div class="footer-right-item">설정</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

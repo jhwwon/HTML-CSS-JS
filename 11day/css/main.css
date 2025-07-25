@@ -1,0 +1,244 @@
+body {
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+}
+
+.inner {
+  width: 1100px;
+  margin: 0 auto;
+  position: relative;
+}
+
+
+
+header {
+  width: 100%;
+  position: fixed;
+  background-color: #F6F5F0;
+  border-bottom: 1px  solid #c8c8c8;
+}
+
+header > .inner {
+  height: 120px;
+}
+
+header .inner .logo {
+  height: 75px;
+  margin: auto 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  /* display: none; */
+}
+
+header .inner .sub-menu {
+  display: flex;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+header .inner .sub-menu ul.menu {
+  font-family: Arial, sans-serif;
+  display: flex;
+}
+header .inner .sub-menu ul.menu li { 
+  position: relative;
+}
+header .inner .sub-menu ul.menu li::before {
+  content: "";
+  width: 1px;
+  height: 12px;
+  display: block;
+  background-color: #e5e5e5;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+}
+
+header .inner .sub-menu ul.menu li:first-child::before {
+  display: none;
+}
+
+header .inner .sub-menu ul.menu li a {
+  font-size: 13px;
+  padding: 11px 16px;
+  display: block;
+  color: #656565;
+}
+header .inner .sub-menu ul.menu li a:hover {
+  color: #000;
+}
+header .inner .sub-menu .search {  
+  height: 34px;
+  position: relative;
+  cursor: pointer;
+}
+header .inner .sub-menu .search input {
+  width: 36px;
+  height: 34px;
+  padding: 4px 10px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 5px;
+  outline: none;
+  background-color: white;
+  color: #777;
+  font-size: 12px;
+  transition: width .4s;
+}
+header .inner .sub-menu .search input:focus {
+  width: 190px;
+  border-color: #669900;
+}
+header .inner .sub-menu .search .material-icons {
+  height: 24px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 5px;
+  margin: auto 0;
+  transition: .4s;
+}
+
+header .inner .sub-menu .search.focused .material-icons {
+  opacity: 0;
+}
+
+header .main-menu {
+  display: flex;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+header .main-menu .item {
+
+}
+header .main-menu .item .item__name {
+  padding: 10px 20px 34px 20px;
+  font-size: 13px;
+  font-family: Arial, sans-serif;
+}
+
+header .main-menu .item:hover .item__name {
+  background-color: #2c2a29;
+  color: #669900;
+  border-radius: 6px 6px 0 0;
+  cursor: pointer;
+}
+header .main-menu .item .item__contents {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  display: none;
+}
+
+header .main-menu .item:hover .item__contents {
+  display: block;
+}
+
+header .main-menu .item .item__contents .contents__menu {
+  background-color: #2c2a29;
+}
+
+header .main-menu .item .item__contents .contents__menu > ul {
+  display: flex;
+  padding: 20px 0;
+}
+
+header .main-menu .item .item__contents .contents__menu > ul > li {
+  width: 220px;
+}
+
+header .main-menu .item .item__contents .contents__menu > ul > li h4 {
+  color: #fff;
+  font-size: 14px;
+  padding: 3px 0 12px 0;
+}
+
+header .main-menu .item .item__contents .contents__menu > ul > li ul {
+
+}
+
+header .main-menu .item .item__contents .contents__menu > ul > li ul li {
+  color: #999;
+  font-size: 12px;
+  padding: 5px 0;
+  cursor: pointer;
+}
+
+header .main-menu .item .item__contents .contents__texture {
+  background-image: url("../images/main_menu_pattern.jpg");
+  font-size: 12px;
+  padding: 26px 0;
+}
+
+header .main-menu .item .item__contents .contents__texture h4 {
+  color: #999;
+  font-weight: 700;
+  
+}
+header .main-menu .item .item__contents .contents__texture p {
+  color: #690;
+  margin: 4px 0 14px;
+}
+
+header .badges {
+  position: fixed;
+  right: 12px;
+  top: 132px;
+}
+
+header .badges .badge {
+  border-radius: 10px; 
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+/* section1 */
+.visual {
+  /* height: 500px; */
+  background-color: royalblue;
+}
+
+/* section2 */
+.notice {
+  /* height: 500px; */
+  background-color: orange;
+}
+
+/* section3 */
+.promotion {
+  /* height: 500px; */
+  background-color: red;
+}
+
+/* section4 */
+.promotion {
+  /* height: 500px; */
+  background-color: yellow;
+}
+
+/* section5 */
+.youtube {
+  /* height: 500px; */
+  background-color: green;
+}
+
+/* section6 */
+.season-product {
+  /* height: 500px; */
+  background-color: brown;
+}

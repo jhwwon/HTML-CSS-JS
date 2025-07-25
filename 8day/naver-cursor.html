@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>네이버 회원가입</title>
+    <style>
+        .container {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f6f6;
+            text-align: center;
+        }
+
+        .naverlogo img {
+            width: 160px;
+            margin: 10px auto;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 550;
+            margin-bottom: 5px;
+            margin-left: 25px;
+        }
+
+        .form-input {
+            width: 250px;
+            height: 25px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .birth-group {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .birth-input {
+            width: 80px;
+            height: 25px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        .password-group {
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .lock-icon {
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+        }
+
+        .submit-btn {
+            width: 255px;
+            height: 35px;
+            color: white;
+            background-color: #04c859;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        select {
+            width: 250px;
+            height: 35px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 0 auto;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="naverlogo">
+            <img src="./images/NAVER_CI_Green.png" alt="네이버 로고">
+        </div>
+
+        <form>
+            <div class="form-group">
+                <label class="form-label">아이디</label>
+                <input type="text" class="form-input">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">비밀번호</label>
+                <div class="password-group">
+                    <input type="password" class="form-input">
+                    <img src="./images/lock.svg" class="lock-icon" alt="잠금">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">비밀번호 재확인</label>
+                <input type="password" class="form-input">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">이름</label>
+                <input type="text" class="form-input">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">생년월일</label>
+                <div class="birth-group">
+                    <input type="text" class="birth-input" placeholder="년(4자)">
+                    <input type="text" class="birth-input" placeholder="월">
+                    <input type="text" class="birth-input" placeholder="일">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">성별</label>
+                <select>
+                    <option value="">성별</option>
+                    <option value="female">여자</option>
+                    <option value="male">남자</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">휴대전화</label>
+                <input type="tel" class="form-input" placeholder="전화번호 입력">
+            </div>
+
+            <button type="submit" class="submit-btn">가입하기</button>
+        </form>
+    </div>
+</body>
+
+</html>

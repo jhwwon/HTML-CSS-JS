@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="title">Hello, World!</h1>
+    <p class="content">This is a paragraph.</p>
+    <button onClick="changeText();">Change Text</button>
+
+    <script>
+        //Change Text버튼을 클릭시 실행되는 함수
+        function changeText() {
+            // 1. 태그에 있는 id값으로 요소(element)를 가져오는 방법
+            // let titleElement = document.getElementById("title");
+            // console.log(titleElement);
+
+            // if (titleElement.textContent === 'Hello, DOM!')
+            //     titleElement.textContent = 'Hello, World!';
+            // else
+            //     titleElement.textContent = 'Hello, DOM!';
+
+            // 2. class값으로 요소(element)를 가져오는 방법
+            let content1 = document.querySelector(".content");
+            console.log(content1); 
+            content1.textContent = "홍길동";
+        }
+    </script>
+</body>
+
+</html>

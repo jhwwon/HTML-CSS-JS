@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Overwatch Heroes</title>
+  <style>
+    body {
+      margin: 0;
+      background-image: url('./images/bg.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+
+    .heros {
+      display: flex;
+      flex-direction: column;
+      /* 세로로 쌓음 */
+      align-items: center;
+      justify-content: center;
+      padding-top: 50px;
+    }
+
+    /* 테두리만 skew 적용하는 wrapper */
+    .skew-wrapper {
+      display: inline-block;
+      border: 5px solid white;
+      border-radius: 10px;
+      padding: 5px;
+      margin: 5px;
+      transform: skewX(-20deg); /* 테두리 기울기 */
+      transition: background-color 0.5s ease-out;
+    }
+
+    /* 이미지에는 반대 skew 적용해서 원래 모습 유지 */
+    .skew-wrapper img {
+      display: block;
+      width: 80px;
+      height: auto;
+      transform: skewX(20deg);
+      border-radius: 5px;
+    }
+
+    .logo img {
+      display: block;
+      margin: 50px auto;
+      width: 200px;
+    }
+
+    /* Hover 효과 - 이미지 wrapper 배경색 변경 */
+    .skew-wrapper:hover {
+      background-color: orange;
+      cursor: pointer;
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="heros">
+      <div class="row1">
+        <div class="skew-wrapper"><img src="./images/hero1.png" /></div>
+        <div class="skew-wrapper"><img src="./images/hero2.png" /></div>
+        <div class="skew-wrapper"><img src="./images/hero3.png" /></div>
+        <div class="skew-wrapper"><img src="./images/hero4.png" /></div>
+        <div class="skew-wrapper"><img src="./images/hero5.png" /></div>
+        <div class="skew-wrapper"><img src="./images/hero6.png" /></div>
+        <div class="skew-wrapper"><img src="./images/hero7.png" /></div>
+      </div>
+      <div class="row2">
+        <div class="skew-wrapper"><img src="./images/hero8.png" /></div>
+        <div class="skew-wrapper"><img src="./images/hero9.png" /></div>
+        <div class="skew-wrapper"><img src="./images/hero10.png" /></div>
+        <div class="skew-wrapper"><img src="./images/hero11.png" /></div>
+        <div class="skew-wrapper"><img src="./images/hero12.png" /></div>
+        <div class="skew-wrapper"><img src="./images/hero13.png" /></div>
+        <div class="skew-wrapper"><img src="./images/hero14.png" /></div>
+      </div>
+      <div class="row3">
+        <div class="skew-wrapper"><img src="./images/hero15.png" /></div>
+        <div class="skew-wrapper"><img src="./images/hero16.png" /></div>
+        <div class="skew-wrapper"><img src="./images/hero17.png" /></div>
+        <div class="skew-wrapper"><img src="./images/hero18.png" /></div>
+        <div class="skew-wrapper"><img src="./images/hero19.png" /></div>
+        <div class="skew-wrapper"><img src="./images/hero20.png" /></div>
+        <div class="skew-wrapper"><img src="./images/hero21.png" /></div>
+      </div>
+      <div class="row4">
+        <div class="skew-wrapper"><img src="./images/hero22.png" /></div>
+        <div class="skew-wrapper"><img src="./images/hero23.png" /></div>
+        <div class="skew-wrapper"><img src="./images/hero24.png" /></div>
+        <div class="skew-wrapper"><img src="./images/hero25.png" /></div>
+        <div class="skew-wrapper"><img src="./images/hero26.png" /></div>
+        <div class="skew-wrapper"><img src="./images/hero27.png" /></div>
+        <div class="skew-wrapper"><img src="./images/hero28.png" /></div>
+      </div>
+      <div class="row5">
+        <div class="skew-wrapper"><img src="./images/hero29.png" /></div>
+        <div class="skew-wrapper"><img src="./images/hero30.png" /></div>
+        <div class="skew-wrapper"><img src="./images/hero31.png" /></div>
+        <div class="skew-wrapper"><img src="./images/hero32.png" /></div>
+      </div>
+    </div>
+    <div class="logo">
+      <img src="./images/logo_overwatch.png" alt="Overwatch Logo" />
+    </div>
+  </div>
+</body>
+
+</html>

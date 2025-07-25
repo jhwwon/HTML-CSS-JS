@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="myList">
+        <li>Apple</li>
+        <li>Orange</li>
+        <li>Banana</li>
+    </ul>
+
+    <button onclick="addElement();">Add Element</button>
+    <button onclick="modifyElement();">Modify Element</button>
+    <button onclick="deleteElement();">Delete Element</button>
+
+    <script>
+        //li 요소 추가 함수
+        function addElement() {
+            //새로운 li요소 생성
+            let newItem = document.createElement("li");
+            //새로운 li요소 안에 내용을 Grapes로 추가
+            newItem.textContent = "Grapes";
+            newItem.setAttribute("class", "dark");
+
+            //id가 myList인 태그(ul요소) 밑의 자식요소로 추가
+            document.getElementById('myList').appendChild(newItem);
+        }
+
+        //li 요소 수정 함수
+        function modifyElement() {
+            //Orange li태그 요소 가져오기
+            let listItem = document.querySelector('#myList li:nth-child(2)');  
+            //Orange li태그 요소 수정
+            listItem.textContent = "Strawberry";
+        }
+
+        //li 요소 삭제 함수
+        function deleteElement() {
+            //Banana li태그 요소 가져오기
+            let listItem = document.querySelector('#myList li:nth-child(3)');  
+            //Banana li태그 요소 수정
+            listItem.parentNode.removeChild(listItem);
+        }
+    </script>
+</body>
+</html>

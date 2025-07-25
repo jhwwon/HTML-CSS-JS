@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Naver 회원가입</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      display: flex;
+      justify-content: center;
+      padding-top: 50px;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      width: 350px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+    }
+
+    .logo {
+      text-align: center;
+      font-size: 32px;
+      color: #03c75a;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .row {
+      display: flex;
+      gap: 10px;
+    }
+
+    .row select,
+    .row input {
+      flex: 1;
+    }
+
+    button {
+      width: 100%;
+      background-color: #03c75a;
+      color: white;
+      padding: 14px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #02b050;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div style="text-align: center; margin-bottom: 31px;">
+      <a href="https://nid.naver.com/user2/V2Join.nhn?m=agree#agreeBottom" target="_parent" title="네이버 회원가입 페이지 보러가기">
+        <img src="./images/NAVER_CI_Green.png" id="logo" width="240" height="44">
+      </a>
+    </div>
+
+    <input type="text" placeholder="아이디" />
+    <input type="password" placeholder="비밀번호" />
+    <input type="password" placeholder="비밀번호 재확인" />
+    <input type="text" placeholder="이름" />
+
+    <div class="row">
+      <input type="text" placeholder="년(4자)" />
+      <select>
+        <option>월</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <!-- 나머지 월 생략 -->
+      </select>
+      <input type="text" placeholder="일" />
+    </div>
+
+    <select>
+      <option>성별</option>
+      <option>남자</option>
+      <option>여자</option>
+      <option>선택 안 함</option>
+    </select>
+
+    <input type="text" placeholder="전화번호 입력" />
+
+    <button>가입하기</button>
+  </div>
+</body>
+</html>

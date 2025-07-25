@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership Page</title>
+</head>
+<body>
+    <h1><center>회원가입하기</center></h1>
+    <fieldset align="center">
+        <legend>회원가입 동의서</legend>
+        <label for="agree">이용약간 동의(필수)</label>
+        <br>
+        <textarea cols="35" rows="5" id="content" name="content">여러분을 환영합니다. 네이버 서비스 및 베룸(이하 '서비스')를 이용해 주셔서 감사합니다. </textarea>
+        <br>
+        <input type="radio" name="agree">동의합니다 
+        <input type="radio" name="agree">동의하지 않습니다 
+        <br><br>
+        <label for="agree">개인정보 수집 및 이용동의(필수)</label>
+        <br>
+        <textarea cols="35" rows="5" id="content" name="content">여러분을 환영합니다. 네이버 서비스 및 베룸(이하 '서비스')를 이용해 주셔서 감사합니다. </textarea>
+        <br>
+        <input type="radio" name="agree">동의합니다 
+        <input type="radio" name="agree">동의하지 않습니다 
+        <br><br>
+        <input type="checkbox" name="agree">모두 동의합니다 
+        <br>
+        <br>
+        <a href="account-login.html">
+        <input type="button" value="취소" style="width:130px; height:25px; background-color:plum;">  
+        </a>
+        <a href="account-membershipform.html">
+        <input type="button" value="확인" style="width:130px; height:25px; background-color:plum;">  
+        </a>
+    </fieldset>
+</body>
+</html>
+
+
+<!-- 선생님 -->
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    <fieldset>
+      <legend>회원가입 동의서</legend>
+      <form method="get" action="./account-register.html">
+          <label>이용약간 동의(필수)</label><br>
+          <textarea cols="50" rows="8" sytle="">
+  여러분을 환영합니다.
+  네이버 서비스 및 베품(이하 '서비스')을 이용해 주셔서 감사합니다.
+          </textarea>
+      <br>
+      <input type="radio" name="agree1" id="a1"> 
+      <label for="a1">동의합니다</label>
+      <input type="radio" name="agree1" id="a2">
+      <lable for="a2">동의하지않습니다.</lable>
+      <br>
+      <br>
+
+
+      <label>개인정보 수집 및 이용동의(필수)</label><br>
+      <textarea cols="50" rows="8" sytle="resize:resize">
+  여러분을 환영합니다.
+  네이버 서비스 및 베품(이하 '서비스')을 이용해 주셔서 감사합니다.
+      </textarea>
+      <br>
+
+      <input type="radio" name="agree2" id="a3"> 
+      <label for="a3">동의합니다</label>
+      <input type="radio" name="agree2" id="a4">
+      <lable for="a4">동의하지않습니다.</lable>
+      <!-- name속성을 다른 그룹으로 해야함 -->
+      <br>
+      <br>
+      <input type="checkbox" id="agree">
+      <label for="agree">모두 동의합니다</label>
+
+      <br><br>
+      <button type="reset">취소</button>
+      <button type="submit">확인</button>
+    </form>
+  </fieldset>
+</body>
+</html>

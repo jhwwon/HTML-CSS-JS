@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 기본적으로는 순서가 함수 선언을 하고 함수 호출.
+    // 그러나 hosting기능(ex) 함수를 호출하고 함수 선언하는))때문에 순서없이 사용가능 (hosting이 좋은 기능은 아님)
+    // 2. 함수 호출
+    hello();
+
+    // 1. 함수 선언
+    function hello() {
+      console.log('hello world')
+    }
+    //-----------------------------------------------------------------------------------------------
+
+    // 변수에 대해서 호이스팅 기능을 쓰려면 var를 사용
+    console.log(number);
+    var number = 2;     // 호이스팅 기능으로 인해서 error가 아님(undefined)
+
+    // 변수에 대해서 호이스팅 기능을 사용하지 않으려면 let, const사용
+    console.log(number2);   // 호이스팅 기능을 사용하지 않는 변수 선언으로 인해 error
+    let number2 = 2;
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

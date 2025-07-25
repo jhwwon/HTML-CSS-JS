@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    a:hover {   /* 마우스 커서가 오버되었을 때 적용되는 CSS코드 */
+      color: red;     
+      font-size: 40px;
+    }
+    a:active {  /* 마우스를 클릭하는 동안 적용되는 CSS코드 */
+      color: yellow;
+    }
+
+    input:focus {
+        background-color: orange;
+    }
+
+    a:focus {
+        color: pink;
+    }
+
+    a:hover {
+        color: purple;
+    }
+
+    /* 클래스 이름이 fruits이고 후손들 중에서 첫번째 span이 나오는 node만 CSS코드 적용 */ 
+    /* .fruits span:first-child {
+      color: red;
+    } */
+    /* 같은 태그일 경우 적용이 안됨 */ 
+    /* .fruits div:first-child {
+      color: red;
+    } */
+    /* 클래스 이름이 fruits이고 후손들 중에서 마지막 태그가 h3가 나오는 node만 CSS코드 적용 */ 
+    /* .fruits h3:last-child {
+      color: red;
+    } */
+    /* 모든 후손 태그들 중에 3번째 태그(node)만 적용 */ 
+    /* .fruits *:nth-child(3) {
+      color: red;
+    } */
+    /* 모든 후손 태그들 중에 짝수 태그(node)만 적용 */ 
+    /* .fruits *:nth-child(2n) {
+      color: red;
+    } */
+    /* 모든 후손 태그들 중에 홀수 태그(node)만 적용 */ 
+    /* .fruits *:nth-child(2n+1) {
+      color: red;
+    } */
+     /* 모든 후손 태그들 중에 2번째 태그(node)이후에 있는 태그들만 적용 */
+    /* .fruits *:nth-child(n+2) {
+      color: red;
+    } */
+     /* 모든 후손 태그들 중에 span이 아닌 태그들만 적용, *할떄만 사용 */
+    /* .fruits *:not(span) {
+        color: red;
+    } */
+
+    .box::before {
+        content: "앞!";
+    }
+
+    .box::after {
+        content: "뒤!";
+    }
+  </style>
+</head>
+<body>
+  <a href="https://www.naver.com">NAVER</a>
+  <br>
+  <input type="text" />
+  <br>
+
+  <div class="fruits">
+    <span>딸기</span>
+    <span>수박</span>
+    <div>오렌지</div>
+    <div>토마토</div>
+    <p>망고</p>
+    <h3>사과</h3>
+  </div>
+  <br>
+
+  <div class="box">
+    Content!
+  </div>
+</body>
+</html>

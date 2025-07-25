@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const doggy = {
+            name: '멍멍이',
+            sound: '멍멍',
+            age: 2
+        };
+
+        console.log(Object.entries(doggy));  //doggy의 모든 내용 조회
+        console.log(Object.keys(doggy));     //doggy의 키 리스트만 조회(name, sound, age)
+        console.log(Object.values(doggy));   //doggy의 값 리스트만 조회(멍멍이, 멍멍, 2)
+
+        for(let key in doggy) {
+            console.log(`${key}: ${doggy[key]}`);
+        }
+
+        const doggyList = [doggy, doggy, doggy];
+        for(const tempDoggy of doggyList) {
+            for(let key in tempDoggy) {
+            console.log(`${key}: ${tempDoggy[key]}`);
+            }
+        }
+
+        log
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

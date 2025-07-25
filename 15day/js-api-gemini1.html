@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 경고: 이 파일은 학습 목적으로만 사용되어야 하며, 실제 서비스에서는 API 키를 절대 노출해서는 안 됩니다.
+    // API 키는 서버 사이드(Node.js, Python Flask/Django 등)에서 안전하게 관리되어야 합니다.
+
+    const GEMINI_API_KEY = 'AIzaSyCaO0UssKxDz6ubMFEiuW6BaQaLI2dwPCI'; // 여기에 발급받은 Gemini API 키를 넣으세요.
+    //const MODEL_NAME = 'gemini-pro'; // 사용할 Gemini 모델 (예: gemini-pro, gemini-pro-vision 등)
+    const MODEL_NAME = 'gemini-pro'; // 사용할 Gemini 모델 (예: gemini-pro, gemini-pro-vision 등)
+
+    async function callGeminiApi(prompt) {
+        //const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL_NAME}:generateContent?key=${GEMINI_API_KEY}`;
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent`;
+
+        try {
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-goog-api-key': GEMINI_API_KEY,
+                },
+                body: JSON.stringify({
+                    contents: [
+                        {
+                            parts: [
+                                {
+                                    text: prompt,
+                                },
+                            ],
+                        },
+                    ],
+                }),
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(`API call failed with status ${response.status}: ${JSON.stringify(errorData)}`);
+            }
+
+            const data = await response.json();
+            return data; // Gemini API의 응답 데이터 반환
+        } catch (error) {
+            console.error('Error calling Gemini API:', error);
+            return { error: error.message };
+        }
+    }
+
+    // 예제 사용:
+    async function main() {
+        const userPrompt = "안녕하세요! 당신은 누구인가요?";
+        console.log(`Sending prompt: "${userPrompt}"`);
+
+        const result = await callGeminiApi(userPrompt);
+
+        if (result && result.candidates && result.candidates.length > 0) {
+            const firstPart = result.candidates[0].content.parts[0];
+            console.log("Gemini API Response:", firstPart.text);
+        } else {
+            console.log("No valid response from Gemini API or an error occurred.");
+            console.log(result); // 에러 또는 상세 응답 확인
+        }
+    }
+
+    // 페이지 로드 시 또는 특정 이벤트 발생 시 함수 호출
+    // (예: 버튼 클릭 시)
+    main();
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

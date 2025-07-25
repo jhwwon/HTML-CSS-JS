@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 300px;
+            height: 500px;
+            background-color: rgb(244, 246, 246);
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .container .naverlogo img {
+            width: 160px;
+            display: block;
+            margin: 10px auto 10px;
+        }
+
+        .container .content input {
+            width: 250px;
+            height: 18px;
+            border-radius: 5px;
+        }
+
+        .container .content span {
+            width: 50px;
+            height: 18px;
+        }
+
+        .container .content .id,
+        .pw,
+        .pw2,
+        .name,
+        .birth,
+        .gender,
+        .number,
+        .lock-box {
+            font-weight: 550;
+            text-align: left;
+            /* 왼쪽 정렬 */
+            margin-left: 25px;
+            /* 약간 들여쓰기 (input과 맞추기 위함) */
+            font-size: 14px;
+            margin-bottom: 3px;
+        }
+
+        .container .content input {
+            width: 250px;
+            height: 25px;
+            display: block;
+            /* 줄 바꿈 */
+            margin: 0 auto 10px;
+            /* 가운데 정렬 + 아래 여백 */
+            border: 1px solid #ccc;
+            /* 얇고 연한 테두리로 설정 */
+        }
+
+        .birth-inputs {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            /* input 사이 간격 */
+            margin-bottom: 10px;
+        }
+
+        .birth-inputs input {
+            width: 30px;
+            height: 18px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+
+        .container .content .icon {
+            width: 250px;
+            height: 25px;
+            /* background-color: red; */
+        }
+
+        .lock-box {
+            text-align: left;
+            margin-left: 25px;
+            margin-bottom: 10px;
+        }
+
+        .lock-box .icon {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .lock-box .pw-input {
+            width: 200px;
+            height: 25px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 25px;
+        }
+
+        .lock-box img {
+            width: 20px;
+            height: 25px;
+        }
+
+        .submit-btn {
+            width: 255px;
+            height: 24px;
+            color: white;
+            background-color: rgb(4, 200, 89);
+            border: 0 none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="naverlogo">
+            <img src="./images/NAVER_CI_Green.png">
+        </div>
+
+        <div class="content">
+            <div class="id">아이디</div>
+            <div><input type="text"></div>
+            <div class="lock-box">
+                <div class="label">비밀번호</div>
+                <div class="icon">
+                    <input type="text" class="pw-input" placeholder="">
+                    <img src="./images/lock.svg">
+                </div>
+            </div>
+            <div class="pw2">비밀번호 재확인</div>
+            <div><input type="password"></div>
+            <div class="name">이름</div>
+            <div><input type="text"></div>
+            <div class="birth">생년월일</div>
+            <div class="birth-inputs">
+                <input type="text1" placeholder="년(4자)">
+                <input type="text2" />
+                <input type="text3" placeholder="일">
+            </div>
+            <div class="gender">성별</div>
+            <div class="gender2">
+                <select>
+                    <option value="gender2">성별</option>
+                    <option value="male">여자</option>
+                    <option value="female">남자</option>
+                </select>
+            </div>
+            <div class="number">휴대전화</div>
+            <div><input type="text" placeholder="전화번호 입력"></div>
+            <button class="submit-btn">가입하기</button>
+        </div>
+    </div>
+</body>
+
+</html>

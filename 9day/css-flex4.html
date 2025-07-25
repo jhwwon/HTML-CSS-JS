@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      width: 600px;
+      height: 400px;
+      background-color: royalblue;
+      display: flex;
+      flex-wrap: wrap;
+      /* align-content: flex-start; */
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container .item {
+      width: 100px;
+      height: 100px;
+      border: 3px dashed red;
+      background-color: orange;
+    }
+
+    .container .item:nth-child(1) { order: 0; flex-grow: 0;}  /*order는 container에 넣으면 안됨 item에서만 적용 가능한거라*/
+    .container .item:nth-child(2) { order: 0; flex-grow: 2;}
+    .container .item:nth-child(3) { order: 0; flex-grow: 1;}
+    .container .item:nth-child(4) { order: 0; flex-grow: 0;}
+    .container .item:nth-child(5) { order: 0; flex-grow: 0;}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="item">A</div>
+    <div class="item">B</div>
+    <div class="item">C</div>
+    <!-- <div class="item">D</div>
+    <div class="item">E</div> -->
+  </div>
+</body>
+</html>

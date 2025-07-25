@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAVER 회원가입</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Nanum Gothic', sans-serif;
+            background-color: #f5f6f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            width: 100%;
+            max-width: 460px;
+            /* 이미지와 비슷한 너비 */
+            box-sizing: border-box;
+        }
+
+        .logo {
+            text-align: center;
+            color: #03c75a;
+            font-size: 38px;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            color: #444;
+            margin-bottom: 8px;
+        }
+
+        .input-group input[type="text"],
+        .input-group input[type="password"],
+        .input-group select {
+            width: 100%;
+            padding: 13px 15px;
+            border: 1px solid #dadada;
+            border-radius: 6px;
+            font-size: 15px;
+            box-sizing: border-box;
+            color: #333;
+            -webkit-appearance: none;
+            /* For custom select arrow */
+            -moz-appearance: none;
+            appearance: none;
+        }
+
+        .input-group input[type="text"]:focus,
+        .input-group input[type="password"]:focus,
+        .input-group select:focus {
+            outline: none;
+            border-color: #03c75a;
+        }
+
+        .input-with-suffix {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-with-suffix input {
+            padding-right: 90px;
+            /* Adjust based on suffix width */
+        }
+
+        .input-with-suffix .suffix {
+            position: absolute;
+            right: 15px;
+            color: #777;
+            font-size: 15px;
+        }
+
+        .birthdate-selects {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .birthdate-selects select {
+            flex: 1;
+            background-color: #fff;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="%23666" viewBox="0 0 10 10"><polygon points="0,3 5,8 10,3"/></svg>');
+            /* Custom arrow */
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            padding-right: 30px;
+            /* Space for the custom arrow */
+        }
+
+        .birthdate-selects span {
+            font-size: 15px;
+            color: #333;
+        }
+
+
+        .submit-button {
+            width: 100%;
+            padding: 15px 20px;
+            background-color: #03c75a;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.2s ease;
+        }
+
+        .submit-button:hover {
+            background-color: #02b350;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="logo">NAVER</h1>
+        <form action="#" method="post">
+            <div class="input-group">
+                <label for="id">아이디</label>
+                <div class="input-with-suffix">
+                    <input type="text" id="id" name="id" placeholder="" required>
+                    <span class="suffix">@naver.com</span>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="password">비밀번호</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <div class="input-group">
+                <label for="password-confirm">비밀번호 재확인</label>
+                <input type="password" id="password-confirm" name="password-confirm" required>
+            </div>
+
+            <div class="input-group">
+                <label for="name">이름</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="input-group">
+                <label>생년월일</label>
+                <div class="birthdate-selects">
+                    <select id="year" name="year" required>
+                        <option value="" disabled selected>년 (네자리)</option>
+                        <script>
+                            const currentYear = new Date().getFullYear();
+                            for (let i = currentYear; i >= currentYear - 100; i--) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                            }
+                        </script>
+                    </select>
+                    <select id="month" name="month" required>
+                        <option value="" disabled selected>1</option>
+                        <script>
+                            for (let i = 1; i <= 12; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                            }
+                        </script>
+                    </select>
+                    <span>일</span>
+                    <select id="day" name="day" required>
+                        <option value="" disabled selected></option>
+                        <script>
+                            for (let i = 1; i <= 31; i++) {
+                                document.write(`<option value="${i}">${i}</option>`);
+                            }
+                        </script>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="gender">성별</label>
+                <select id="gender" name="gender" required>
+                    <option value="" disabled selected>남자</option>
+                    <option value="male">남자</option>
+                    <option value="female">여자</option>
+                    <option value="none">선택 안함</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="phone-verification">휴대폰 전화 인증번호 입력</label>
+                <input type="text" id="phone-verification" name="phone-verification" placeholder="" required>
+            </div>
+
+            <button type="submit" class="submit-button">가입하기</button>
+        </form>
+    </div>
+</body>
+
+</html>

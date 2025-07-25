@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {}
+
+        .container .item {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            border: 4px dashed red;
+            font-weight: 900;
+            text-align: center;
+            text-decoration: underline;
+            text-indent: 60px;
+            background-image: url("./text2.jpg");
+        }
+
+        .container .item:first-child {
+            padding: 20px;
+            margin: 20px;
+        }
+
+        .container .item:nth-child(2) {
+            padding: 30px;
+            margin: 50px;
+        }
+
+        .container .item:nth-child(3) {
+            padding: 20px;
+            margin: 20px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+</body>
+
+</html>

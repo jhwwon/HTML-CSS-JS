@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .product-card {
+      display: flex;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 15px;
+      width: 250px;
+      box-sizing: border-box;
+      flex-direction: column;
+    }
+  </style>
+</head>
+<body>
+  <h1>Our Products(총 <span id="total"></span>건)</h1>
+  <div class="container" id="product-cards-container">
+    
+  </div>
+
+  <script>
+    async function getProductList() {
+      try {
+        // 상품 정보 가져오는 데이터(ajax코드)
+        // vanilla ajax 호출 예제(기능은 fetch함수와 동일)
+        let xhr = new XMLHttpRequest(); // XMLHttpRequest 객체 생성
+
+        // ajax 응답 설정
+        xhr.onreadystatechange = function() {
+          //통신이 완전히 끝났는지 && 서버기 성공적으로 응답했는지를 확인하는 if문
+          if(xhr.readyState === 4 && xhr.status === 200) { // 정상적으로 호출이 되어 응답이 왔다면
+            // 브라우저 콘솔에 출력(서버가 보내준 응답 데이터가 문자열 형태로 저장되어 있는 속성)
+            console.log(xhr.responseText);
+
+            // 브라우저에 출력
+            //document.getElementById('test1').textContent = xhr.responseText;
+
+            let productListData = JSON.parse(xhr.responseText);  // 일반적인 텍스트 -> {}객체로 변환.
+            // 참고: JSON.stringify() // {}객체 -> 일반적인 텍스트
+            // 참고: JSON.parse()  //  일반적인 텍스트 -> {}객체 
+
+            document.getElementById('total').textContent 
+              = productListData.products.length;
+
+            const productCardsContainer 
+              = document.getElementById('product-cards-container');
+            productListData.products.forEach(product => {
+              // 비구조화 할당을 이용해서 필요한 데이터만 가져오기
+              const { 
+                title, 
+                price, 
+                brand, 
+                thumbnail, 
+                category,
+                total,
+              } = product;
+
+              // 웹페이지 출력하기 위한 태그 생성
+              const card = document.createElement('div');
+              card.classList.add('product-card');
+
+              card.innerHTML = `
+                <img src="${thumbnail}" alt="${title}" />
+                <h3>${title}</h3>
+                <p>Brand: ${brand}</p>
+              `;
+              productCardsContainer.appendChild(card);
+            });
+          }
+        }
+
+        xhr.open('GET', 'https://dummyjson.com/products', true); // 요청 설정
+        xhr.send(); // 실제 요청 전송
+      } catch(err) {
+          console.error('Error fecting products:', err);
+      }
+    }
+
+    getProductList(); 
+  </script>
+</body>
+</html>

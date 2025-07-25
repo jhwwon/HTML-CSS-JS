@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini API 웹 예제</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 500px;
+            margin: 20px auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        input[type="text"] {
+            width: calc(100% - 22px); /* Padding and border */
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        textarea {
+            width: calc(100% - 22px); /* Padding and border */
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            min-height: 150px;
+            resize: vertical;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <label for="inputText">입력:</label>
+        <input type="text" id="inputText" placeholder="여기에 질문을 입력하세요.">
+    </div>
+
+    <div>
+        <button id="submitButton">Gemini에게 질문하기</button>
+    </div>
+
+    <div>
+        <label for="responseTextarea">Gemini 응답:</label>
+        <textarea id="responseTextarea" readonly></textarea>
+    </div>
+
+    <script>
+        // 경고: 이 파일은 학습 목적으로만 사용되어야 하며, 실제 서비스에서는 API 키를 절대 노출해서는 안 됩니다.
+        const GEMINI_API_KEY = 'AIzaSyCaO0UssKxDz6ubMFEiuW6BaQaLI2dwPCI'; // 여기에 발급받은 Gemini API 키를 넣으세요.
+        const MODEL_NAME = 'gemini-pro'; // 사용할 Gemini 모델 (예: gemini-pro, gemini-pro-vision 등)
+
+        // HTML 요소들을 가져옵니다.
+        const inputText = document.getElementById('inputText');
+        const submitButton = document.getElementById('submitButton');
+        const responseTextarea = document.getElementById('responseTextarea');
+
+        async function callGeminiApi(prompt) {
+            // gemini-2.0-flash 모델을 사용하도록 apiUrl을 수정했습니다.
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent`;
+
+            try {
+                const response = await fetch(apiUrl, {
+
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-goog-api-key': GEMINI_API_KEY,
+                    },
+                    body: JSON.stringify({
+                        contents: [
+                            {
+                                parts: [
+                                    {
+                                        text: prompt,
+                                    },
+                                ],
+                            },
+                        ],
+                    }),
+                });
+                console.log(fetchPromise);
+
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(`API call failed with status ${response.status}: ${JSON.stringify(errorData)}`);
+                }
+
+                const data = await response.json();
+                return data; // Gemini API의 응답 데이터 반환
+            } catch (error) {
+                console.error('Error calling Gemini API:', error);
+                return { error: error.message };
+            }
+        }
+
+        // 버튼 클릭 이벤트 리스너를 추가합니다.
+        submitButton.addEventListener('click', async () => {
+            const userPrompt = inputText.value;
+            if (!userPrompt) {
+                responseTextarea.value = "질문을 입력해주세요.";
+                return;
+            }
+
+            responseTextarea.value = "Gemini 응답을 기다리는 중...";
+            
+            const result = await callGeminiApi(userPrompt);
+
+            if (result && result.candidates && result.candidates.length > 0) {
+                const firstPart = result.candidates[0].content.parts[0];
+                responseTextarea.value = firstPart.text;
+            } else {
+                responseTextarea.value = "Gemini API로부터 유효한 응답을 받지 못했거나 오류가 발생했습니다.\n" + JSON.stringify(result, null, 2);
+            }
+        });
+
+        // (선택 사항) 엔터 키를 눌렀을 때도 동작하게 합니다.
+        inputText.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                submitButton.click(); // 버튼 클릭 이벤트를 트리거합니다.
+            }
+        });
+    </script>
+</body>
+</html>

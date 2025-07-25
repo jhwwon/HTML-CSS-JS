@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function increaseAndPrint(n) {
+      // resolve는 다음 실행할 함수(callback or promise(then))
+      // reject는 오류가 났을 경우 실행할 함수
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          const increased = n + 1;
+
+          if (increased === 5) {
+            // const error = new Error();
+            // error.name = 'ValueIsFiveError';
+            // reject(error);
+            reject(new Error('ValueIsFiveError')); // catch로 잡을 용도
+            return;
+          }
+
+          console.log('increased: ', increased);
+
+          if(resolve) {
+            resolve(increased);
+          }
+        }, 1000);
+      });
+    }
+
+    function promise1() {
+      return new Promise((resolve, reject) => {
+        console.log('hello');
+      })
+    }
+
+    increaseAndPrint(0)
+      .then(increaseAndPrint)
+      .then(increaseAndPrint)
+      .then(increaseAndPrint)
+      .then(increaseAndPrint)
+      .then(increaseAndPrint)
+      .catch(e => {
+        console.error('increaseAndPrint error:', e);
+      })
+    // increaseAndPrint(0).then(n => {
+    //   console.log('result1:', n);
+    //   return increaseAndPrint(n);
+    // })
+    // .then(n => {
+    //   console.log('result2:', n);
+    //   return increaseAndPrint(n);
+    // })
+    // .then(n => {
+    //   console.log('result3:', n);
+    //   return increaseAndPrint(n);
+    // })
+    // .then(n => {
+    //   console.log('result4:', n);
+    //   return increaseAndPrint(n);
+    // })
+    // .then(n => {
+    //   console.log('result5:', n);
+    //   return increaseAndPrint(n);
+    // })
+    // .catch(e => {
+    //   console.error('increaseAndPrint error:', e);
+    // });
+
+    // increaseAndPrint(0, n => {
+    //   increaseAndPrint(n, n => {
+    //     increaseAndPrint(n, n => {
+    //       increaseAndPrint(n, n => {
+    //         increaseAndPrint(n, n => {
+    //           console.log('끝!');
+    //         });
+    //       });
+    //     });
+    //   });
+    // });
+
+    const myPromise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        reject(new Error());
+        resolve(1);
+      }, 1000);
+    });
+
+    myPromise.then(n => {
+      console.log('myPromise:', n);
+    })
+    .catch(e => {
+      console.log('myPromise error:', e);
+    });
+
+    function trycatchExample() {
+      try {
+        //const test1 = 1 / 0;
+        throw new Error();
+      } catch(e) {
+        console.log('error:', e);
+      }
+    }
+    trycatchExample();
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

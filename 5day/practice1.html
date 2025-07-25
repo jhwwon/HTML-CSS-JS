@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0px;
+      padding: 0px;
+    }
+    header {
+      background-color: red;
+      border-bottom: 1px solid lightgray;
+    }
+
+    header .container {
+      /* 가로크기 존재하고 margin 좌우값이 auto일 때 가로크기 이상 넘어갈 경우 중앙을 유지하면 나머지 좌우는 여백을 차지 */
+      width: 980px;  
+      margin: 0 auto;  /* 위 아래 여백은 0, 좌우는 auto */
+      background-color: aqua;
+    }
+
+    header .container .container-left {
+      padding-top: 20px;
+      padding-bottom: 46px;
+      background-color: blueviolet;
+    }
+
+    header .container .container-left .logo {
+      float: left;
+      padding-right: 10px;
+      background-color: blue;
+    }
+
+    header .container .container-left .logo img {
+      display: block;
+    }
+
+    header .container .container-left ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      float: left;
+      background-color: brown;
+    }
+
+    header .container .container-left ul li {
+      margin: 0;
+      padding: 0;
+      float: left;
+      padding: 4px 10px;
+      font-size: 16px;
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="container-left">
+        <div class="logo">
+          <img src="https://heropcode.github.io/GitHub-Responsive/img/logo.svg" />
+        </div>
+        <ul class="menu">
+          <li>Personal</li>
+          <li>Open Source</li>
+          <li>Business</li>
+          <li>Explore</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+</body>
+</html>

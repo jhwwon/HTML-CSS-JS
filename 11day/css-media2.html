@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 데스크탑 화면일 경우에는 모바일 화면을 없애기. 501px이상일 때 즉 데스크탑 화면에서는 mobile화면이 안보임*/
+    @media (min-width: 501px) {
+      .mobile {
+        display: none;
+      }
+
+      body {
+        background-color: orange;
+      }
+    }
+    /* 모바일 화면일 경우에는 데스크탑 화면을 없애기. 500이하일 때 즉 모바일 화면에서는 desktop화면이 안보임 */
+    @media (max-width: 500px) {
+      .desktop {
+        display: none;
+      }
+
+      body {
+        background-color: royalblue;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 데스트탑용 화면 -->
+  <div class="desktop">
+
+  </div>
+  <!-- 모바일용 화면 -->
+  <div class="mobile">
+
+  </div>
+</body>
+</html>

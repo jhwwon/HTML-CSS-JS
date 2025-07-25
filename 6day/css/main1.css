@@ -1,0 +1,145 @@
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+div { 
+  width: 250px; /*바깥 여백 제거*/
+  height: 50px; /*안쪽 여백 제거*/
+  
+  /*이 세가지 코드를 이용하는 이유는 가로와 세로 모두 중앙정렬하기 위함, 즉, 완전한 가운데 정렬을 만들 때 자주 사용*/
+  /*해당 div를 Flexbox 컨테이너로 만든다는 의미 내부 요소들을 일렬로 정렬한다는 의미,  */
+  /* 이 코드를 사용하지 않으면 label이랑 circle이 일렬로 정렬이 안됨 */ 
+  /* 라벨이랑 써클을 일렬로 조정하기 위해서 플렉스 박스라는걸로 큰틀을 만들고 세로축 가로축 기준으로 정렬하고 자세한 위치는 margrin-left로 조정 */
+  display: flex;
+  justify-content: center; /*가로축을 기준으로 좌우에 대한 정렬(컨테이너를 중심으로)*/
+  align-items: center;  /*세로축을 중심으로 정렬*/
+}
+
+div.toggle-on {
+  width: 54px;
+  height: 24px;
+  background-color: #00b050; /*초록색*/
+  border-radius: 30px;
+  display: block; /*위에 명시된 display: flex;를 덮어씌우기 위해서 사용 */
+  padding-top: 2px; /*on글자 기준으로 위에 padding을 2px*/
+  margin-bottom: 20px;
+}
+
+div.toggle-on-label {
+  color: white;
+  width: 30px;
+  height: 24px;
+  font-weight: 500; /*font 굵기*/
+  font-size: 14px;
+  /* float: left; */
+  float: right;
+}
+
+div.toggle-on-circle {
+  width: 22px;
+  height: 22px;
+  background-color: white;
+  margin-left: -20px; /* 왼쪽으로 겹치도록 */
+  border-radius: 50%;
+}
+
+div.toggle-off {
+  width: 58px;
+  height: 24px;
+  background-color: lightgray;
+  border-radius: 30px;
+  display: block;
+  padding-top: 2px;
+  margin-bottom: 20px;
+}
+
+div.toggle-off-circle {
+  width: 22px;
+  height: 22px;
+  background-color: white;
+  margin-left: 3px; /* 약간 오른쪽에 위치 */
+  border-radius: 50%;
+  float: left;
+}
+
+div.toggle-off-label {
+  color: white;
+  width: 32px;
+  height: 22px;
+  font-weight: 500;
+  font-size: 14px;
+  float: left;
+}
+
+div.check-circle {
+  width: 32px;
+  height: 32px;
+  border: 2px solid #999; /*회색*/
+  border-radius: 50% 
+}
+
+div.checkmark {
+  width: 10px;
+  height: 16px;
+  margin-top: -5px;
+  border: solid #999; /*border 앞에 px 없으면 기본값*/
+  border-width: 0 2px 2px 0; /*위쪽 0, 오른쪽 2, 아래쪽 2, 왼쪽 0 -> 시계 방향으로*/
+  transform: rotate(45deg);  /*위에서 설정한 값을 시계 방향으로 45도 회전시키는 코드*/
+}
+
+div.triangle1 {
+  width: 0px;
+  height: 0px;
+  border-top: 100px solid transparent;
+  border-bottom: 100px solid transparent;
+  border-right: 100px solid rgb(9, 170, 92);
+  transform: rotate(90deg);
+  margin-left: 50px;
+}
+
+div.circle1 {
+  width: 100px;
+  height: 100px;
+  background-color: rgb(9, 170, 92);
+  border-radius: 50%;
+}
+
+div.circle1:hover {
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  border-radius: 50%;
+  border: 1px solid rgb(9, 170, 92);
+}
+
+
+div.circle2 {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid rgb(9, 170, 92);
+}
+
+div.circle2:hover {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: rgb(9, 170, 92); 
+  border: 0px none white;
+}
+
+div.login {
+  background-color: rgb(9, 170, 92);
+  color: white;
+  font-weight: 600;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+
+div.passkey {
+  border: 1px solid rgb(9, 170, 92);
+  color: rgb(9, 170, 92);
+  font-weight: 600;
+  border-radius: 10px;
+}

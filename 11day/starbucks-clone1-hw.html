@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f6f2;
+            min-width: 1200px; /*최소 너비 이하로 줄어들지 않게 설정*/
+        }
+
+        .main-header {
+            background-color: #f8f6f2;
+            border-bottom: 1px solid #ddd;
+            position: relative;
+            z-index: 10;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 40px;
+            margin-top: -15px;
+            margin-right: 50px;
+            flex-wrap: nowrap;
+        }
+
+        .main-header .main-menu {
+            display: flex;
+            justify-content: right;
+            align-items: center;
+            gap: 2px;
+            padding: 10px 40px;
+            margin-top: -30px;
+            margin-right: 50px;
+            flex-wrap: nowrap;
+        }
+
+        .logo img {
+            height: 70px;
+            transform: scale(1.2); /* ← 이미지만 확대 */
+            transform-origin: center; /* 왼쪽 중심으로 확대되게 */
+            margin-left: 40px;
+            margin-top: 30px;
+        }
+
+        .top-menu {
+            display: flex;
+            align-items: center;
+            gap: 17px;
+            font-size: 14px;
+            
+        }
+
+        .top-menu a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        .top-menu span {
+            color: #999;
+        }
+
+        .search-btn {
+            background: none;
+            border: 1px solid #ccc;
+            padding: 4px 8px;
+            cursor: pointer;
+            border-radius: 4px;
+            background-color: white;
+        }
+
+        .sidebar div img{
+            border: 2px solid white;
+            border-radius: 15px;
+            margin: 10px;
+        }
+
+        .sidebar {
+            text-align: right;
+            padding-right: 40px;
+
+        }
+
+        .main-header .main-menu span:hover {
+            color: green;
+            background-color: rgb(44, 42, 41);
+            border-radius: 5px;
+            
+        }
+
+        .menupage {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .menupage div {
+            margin-top: -300px;
+        }
+
+        .menupage .title1 {
+            margin-left: -100px;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="top-bar">
+            <div class="logo">
+                <img src="./images/starbucks_logo.png" />
+            </div>
+            <div class="top-menu">
+                <span>Sign In &nbsp;&nbsp;|</span>
+                <span>My Starbucks &nbsp;&nbsp;|</span>
+                <span>Customer Service & Ideas &nbsp;&nbsp;|</span>
+                <span>Find a Store</span>
+                <button class="search-btn"><img src="./images/search.svg" /></button>
+            </div>
+        </div>
+        <div class="main-menu">
+            <span>COFFEE &nbsp;&nbsp;&nbsp;</span>
+            <span>MENU &nbsp;&nbsp;&nbsp;</span>
+            <span>STORE &nbsp;&nbsp;&nbsp;</span>
+            <span>RESPONSIBLIITY &nbsp;&nbsp;&nbsp;</span>
+            <span>MY STARBUCKS REWARDS &nbsp;&nbsp;&nbsp;</span>
+            <span>WHAT'S NEW &nbsp;&nbsp;&nbsp;</span>
+        </div>
+    </header>
+
+    <div class="sidebar">
+        <div><img src="./images/badge1.jpg" /></div>
+        <div><img src="./images/badge2.jpg" /></div>
+    </div>
+
+    <div class="menupage">
+        <div class="title1"><img src="./images/title.png" /></div>
+        <div class="cof2"><img src="./images/coffee.png" /></div>
+        <div class="cof1"><img src="./images/coffee2.png" /></div>
+    </div>
+</body>
+</html>
+

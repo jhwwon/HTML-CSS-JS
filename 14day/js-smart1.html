@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 좀 더 스마트하게 코드 작성하는 방법
+        function getSound(animal) {
+            const sounds = {
+                개: '멍멍!',
+                고양이: '야옹~',
+                참새: '짹짹',
+                비둘기: '구구 구 구'
+            };
+            return sounds[animal] || '...?';
+        }
+
+        console.log(getSound('개')); // 멍멍!
+        console.log(getSound('비둘기')); // 구구 구 구
+        console.log(getSound('독수리')); // ...?
+
+        function makeSound(animal) {
+            const tasks = {
+                개() {
+                    console.log('멍멍');
+                },
+                고양이() {
+                    console.log('고양이');
+                },
+                비둘기() {
+                    console.log('구구 구 구');
+                }
+            };
+            if (!tasks[animal]) {
+                console.log('...?');
+                return;
+            }
+            tasks[animal]();   //함수 실행
+        }
+
+        makeSound('개');
+        makeSound('비둘기');
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 객체 비구조화 할당(실제로 많이 사용함) */
+        const object = { a: 1 };
+        const { a, b = 3 } = object;  //비구조화 할딩 시 뱔도의 키-값을 추가 
+
+        function print({ a, b = 2 }) { //함수 파라미터에 값을 대입시 별도의 키-값 및 기본값을 추가
+            console.log(a);   //1
+            console.log(b);   //2
+        }
+
+        print(object);
+
+        console.log(a);     //1
+        console.log(b);     //3
+
+        const animal = {
+            name: '멍멍이',
+            type: '개'
+        };
+        //const nickname = animal.name;  // == const { name : nickname } = animal;
+        const { name: nickname } = animal;
+        //console.log(name);  //empty string
+        console.log(nickname);  //멍멍이
+
+        /* 배열 비구조화 할당 (실제로 잘 안씀, 내장함수를 많이 이용함)*/
+        const array = [1, 2];
+        const [one, two] = array;
+        console.log('one', one);  //1
+        console.log('two', two);  //2
+
+        /* 깊은 구조 객체 비구조화 할당 */
+        const deepObject = {
+            state: {
+                information: {
+                    name: 'velopert',
+                    language: ['korean', 'english', 'chinese'],
+                }
+            },
+            value: 5,
+        };
+        const { name, language } = deepObject.state.information;
+        // const korean = deepObject.state.information.language[0];
+        // const english = deepObject.state.information.language[1];
+        //const [korean, english] = deepObject.state.information.language;
+        const [korean, english] = language;
+        const { value } = deepObject;
+
+        console.log(name);        // velopert
+        console.log(language);    // ['korean', 'english', 'chinese']
+        console.log(language[0]);    // korean
+        console.log(language[1]);    // english
+        console.log(language[2]);    // chinese
+        console.log(value);          // 5
+
+        let gender = '남';
+        // object-shortend문법
+        const extracted = {
+            name,       // -> name: name
+            language,   // -> language: language
+            value,      // -> value: value
+            gender,     // -> gender: gender
+        };
+        console.log(extracted.name);   //velopert
+        console.log(extracted.gender); //남
+
+        const coupangProduct = {
+            "imageAndTitleArea": {
+                "oriDefaultUrl": "vendor_inventory/5d40/1f97776e1497171fe794c201db867333e71c392f002dbb9f2412285b32c3.jpg",
+                "oriTravelUrl": "",
+                "title": "로아인 남성용 쿨링 와이드 밴딩 여름 팬츠 통바지 남성 여성 커플 빅사이즈 슬랙스 (3size 4color)",
+                "rluxBrandNameArea": {
+                    "badgeImage": {}
+                }
+            },
+            "attributeCount": -1,
+            "priceArea": {
+                "instantDiscountPrice": "",
+                "i18nPrice": {
+                    "amount": "28900"
+                },
+                "price": "28,900"
+            },
+        };
+
+        //price 값을 비구조화 할당을 통해서 가져오기(첫번쨰 방법)
+        const { price: showPrice } = coupangProduct.priceArea;
+        console.log(showPrice);  //28,900
+
+        const {
+            imageAndTitleArea: {
+                oriDefaultUrl,
+                oriTravelUrl
+            },
+            attributeCount
+        } = coupangProduct;
+        console.log(imageAndTitleArea);
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

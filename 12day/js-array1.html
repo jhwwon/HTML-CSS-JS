@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 자바스크립트 배열 처리하기
+        // 예제1: push()배열에 요소 추가
+        let fruits = ['apple', 'banana', 'orange'];
+        fruits.push('grape');
+        console.log(fruits);
+
+        // 예제2: pop() 배열의 마지막 요소 제거
+        let numbers = [1,2,3,4,5];
+        let lastNumber = numbers.pop();
+        console.log(numbers);
+        console.log(lastNumber);
+
+        // 예제3: shift() 배열의 첫번째 요소 제거
+        let fruits2 = ['apple', 'banana', 'orange'];
+        let firstFruit = fruits2.shift();
+        console.log(fruits2);
+        console.log(firstFruit);
+
+        // 예제4: unshift() 배열의 맨 앞에 요소 추가
+        let fruits3 = ['banana', 'orange'];
+        fruits3.unshift('apple');
+        console.log(fruits3); // 출력: ['apple', 'banana', 'orange']
+
+        // 예제5: splice() 배열에서 특정 요소 제거
+        let colors = ['red', 'green', 'blue', 'yellow'];
+        colors.splice(1,2);
+        console.log(colors);
+
+        // 예제6: concat() 두개의 배열 병합
+        let array1 = [1,2,3];
+        let array2 = [4,5,6];
+        let mergedArray = array1.concat(array2);
+        console.log(mergedArray);
+
+        // 예제7: slice() 배열의 일부분 추출
+        let numbers1 = [1,2,3,4,5];
+        let sliceArray = numbers1.slice(1,4);
+        console.log(sliceArray);
+
+        // 예제8: indexOf() 배열에서 요소의 인덱스 검색
+        let fruits4 = ['apple', 'banana', 'orange'];
+        let index = fruits4.indexOf('banana');
+        console.log(index); 
+
+        // 예제9: includes() 배열에 특정 요소가 포함되어 있는지 확인
+        let fruits5 = ['apple', 'banana', 'orange'];
+        let includesOrange = fruits5.includes('orange');
+        console.log(includesOrange);
+
+        // 예제10: forEach() 배열의 각 요소에 집근
+        let numbers2 = [1,2,3,4,5];
+        numbers2.forEach(function(number) {
+            console.log(number);
+        });
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

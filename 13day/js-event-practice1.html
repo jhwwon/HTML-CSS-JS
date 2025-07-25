@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="myList" style="cursor: pointer;">
+        <li>Apple</li>
+        <li>Orange</li>
+        <li>Banana</li>
+    </ul>
+
+    <button id="addButton">Add Item</button>
+
+    <script>
+        //id가 addButton태그에 이벤트 핸들러 등록
+        document.getElementById("addButton").addEventListener("click", function() {
+            addListItem();
+        })
+        //이벤트 위임을 통한 li 요소 추가
+        function addListItem() {
+            let newItem = document.createElement("li");
+            newItem.textContent = "New Item";  
+
+            //ul안의 리스트 태스를 밑에 추가
+            document.getElementById("myList").appendChild(newItem);
+        }
+
+        //li태크를 클릭했을 때 처리하는 이벤트 핸들러 등록
+        document.getElementById("myList").addEventListener("click", function(event) {
+            // alert('myList클릭됨');
+            console.log(event.target);
+            console.log(event.target.tagName);
+
+            if(event.target.tagName === 'LI') {
+                modifyListItem(event.target);
+            }
+        });
+
+        function modifyListItem(item) {
+            const newText = prompt("Enter new text");  //텍스트를 입력할 창 나오게 하기
+            item.textContent = newText;
+        }
+    </script>
+</body>
+</html>

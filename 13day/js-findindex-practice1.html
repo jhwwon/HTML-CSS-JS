@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const todos = [
+            { id: 1, text: '자바스크립트 입문', done: true },
+            { id: 2, text: '함수 배우기', done: true },
+            { id: 3, text: '객체와 배열 배우기', done: true },
+            { id: 4, text: '배열 내장함수 배우기', done: false }
+        ];
+
+        // 여기서 todo는 요소의 한줄을 의미함
+        const index1 = todos.filter(todo => todo.id === 3);
+        console.log(index1);    
+
+        const index2 = todos.filter(todo => todo.done);
+        console.log(index2);   
+        
+        const arr1 = [];  //length값이 0인 빈 배열
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

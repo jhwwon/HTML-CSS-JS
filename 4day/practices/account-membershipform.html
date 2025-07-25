@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MembershipFrom Page</title>
+</head>
+<body>
+    <fieldset>
+        <legend>회원가입 방식</legend>
+        <label for="agree">* 아이디</label>
+        <br>
+        <input type="text" placeholder="영문 소문자, 숫자, 특수기호(_, -) 5~20" maxlegth="15" size="32">
+        <input type="button" value="아이디 중복 확인" >
+        <br>
+        <label for="agree">* 비밀번호</label>
+        <br>
+        <input type="password" placeholder="영문, 숫자, 특수기호(_, -) 8~15" maxlegth="15" size="32">
+        <br>
+        <label for="agree">* 비밀번호 재확인</label>
+        <br>
+        <input type="password" placeholder="영문, 숫자, 특수기호(_, -) 8~15" maxlegth="15" size="32">
+        <br>
+        <label for="agree">* 이름</label>
+        <br>
+        <input type="text" maxlegth="15" size="32">
+        <br>
+        <label for="agree">* 주민등록번호</label>
+        <br>
+        <table>
+            <tr>
+                <th><input type="text" maxlegth="15" size="12"></th>
+                <th>-</th>
+                <th><input type="text" maxlegth="15" size="12"></th>
+            </tr>
+        </table>
+        <label for="agree">* 성별</label>
+        <br>
+        <input type="radio" name="agree">선택안함 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="agree">여자 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="radio" name="agree">남자 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <br>
+        <label for="agree">* 생년월일</label>
+        <br>
+        <input type="date" id="birthday" name="birthday">
+        <br>
+        <label for="agree">주소</label>
+        <br>
+        <input type="text" maxlegth="15" size="32">
+        <br>
+        <label for="agree">우편번호</label>
+        <br>
+        <input type="text" maxlegth="15" size="32">
+        <a href="https://www.epost.go.kr/search.RetrieveIntegrationNewZipCdList.comm">        
+            <input type="button" value="우편번호 찾기">
+        </a>
+        <input type="checkbox" name="agree">우편 수신 동의
+        <br>
+        <label for="agree">이메일</label>
+        <br>
+        <input type="text" maxlegth="15" size="32">
+        <input type="checkbox" name="agree">이메일 수신 동의
+        <br>
+        <label for="agree">휴대폰번호</label>
+        <table>
+            <tr>
+                <td>
+                    <select>
+                        <option>010</option>
+                        <option>011</option>
+                        <option>02</option> 
+                    </select>
+                </td>
+                <td>-</td>
+                <td><input type="text" maxlegth="15" size="6"></td>
+                <td>-</td>
+                <td><input type="text" maxlegth="15" size="6"></td>
+                <td><input type="checkbox" name="agree"/>문자 수신 동의</td>
+            </tr>
+        </table>
+        <br>
+        <a href="account-login.html">
+        <input type="button" value="초기화" style="width:130px; height:25px; background-color:plum;">  
+        </a>
+        <input type="button" value="가입하기" style="width:130px; height:25px; background-color:plum;">  
+    </fieldset>
+</body>
+</html>
+
+
+<!-- 선생님 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <fieldset>
+    <legend>회원가입 양식</legend>
+
+    <form action="./account-login.html" method="post">
+          <!--무조건 post 방식으로 해야함. 내가 보내는 정보는 민감한 정보도 많고 get방식으로
+          보내면 비밀번호가 그대로 url에 노출됨 -->
+      <label>* 아이디</label><br>
+      <input type="text" placeholder="영문 소문자, 숫자, 특수기호(_, -) 5~20" size="35" maxlength="20" minlength="5" required>
+      <input type="button" value="아이디 중복 확인"><br><br>
+
+      <label>* 비밀번호</label><br>
+      <input type="password" placeholder="영문, 숫자, 특수기호(_, -) 8~15" minlength="8" maxlength="15" size="35" required>
+      <br><br>
+
+      <label>* 비밀번호 재확인</label><br>
+      <input type="password" placeholder="영문, 숫자, 특수기호(_, -) 8~15" minlength="8" maxlength="15" size="35" required>
+      <br><br>
+
+      <label>* 이름</label><br>
+      <input type="text" size="35" required>
+      <br><br>
+
+      <label>* 주민등록번호</label><br>
+      <input type="text" maxlength="6"  size="12" required> -
+      <input type="text" maxlength="7"  size="15" required>
+      <br><br>
+
+      <label>* 성별</label><br>
+          <input type="radio" name="gender" id="radio1" required><label for="radio1">선택안함</label>
+          <input type="radio" name="gender" id="radio2" required><label for="radio2">여자</label>
+          <input type="radio" name="gender" id="radio3" required><label for="radio3">남자</label>
+      <br><br>
+
+      <label>* 생년월일</label><br>
+      <input type="date" required><br><br>
+
+      <label>주소</label><br>
+      <input type="text" size="35"><br><br>
+
+      <label>우편번호</label><br>
+      <input type="text" size="20">
+      <input type="button" value="우편번호 찾기">
+      <input type="checkbox" name="agree_post" id="">우편 수신 동의<br><br>
+
+
+      <label>이메일</label><br>
+      <!-- readonly: 읽기 전용으로 입력 필드 설정-->
+      <!-- disabled: 읽기 전용으로 입력 필드 + 서버에서 파라미터 전달X -->
+      <input type="email" size="35" disabled>
+      <input type="checkbox" name="agree_email">이메일 수신 동의<br><br>
+
+      <label>휴대폰번호</label><br>
+      <select>
+          <option>010</option>
+      </select>
+      -
+      <input type="text" size="5" maxlength="4">
+      -
+      <input type="text" size="5" maxlength="4">
+      <input type="checkbox">문자 수신 동의<br><br>
+
+      <input type="reset">
+      <input type="submit" value="가입하기">
+
+    </form>
+  </fieldset>
+</body>
+</html> -

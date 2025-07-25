@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //클래스
+        class Animal {
+            //생성자
+            constructor(name) {
+                this.name = name;
+            }
+
+            //메소드
+            speak() {
+                console.log(`${this.name}이/가 소리를 냅니다.`);
+            }
+        }
+
+        const animal1 = new Animal('고양이');
+        const animal2 = new Animal('강아지');
+        animal1.speak();  //고양이가 소리를 냅니다.
+        animal2.speak();  //강아지가 소리를 냅니다.
+
+        class Dog extends Animal {
+            constructor(name) {
+                super(name);
+
+                this.age = 10;
+            }
+
+            // 자식 클래스에서 부모 클래스의 메소드를 오버라이딩
+            speak() {
+                console.log(`${this.name}이/가 멍멍 소리를 냅니다.`);
+            }
+        }
+        const dog1 = new Dog('멍멍이1');
+        dog1.speak();  //멍멍이1이/가 멍멍 소리를 냅니다
+
+        class Cat extends Animal {
+            constructor(name) {
+                super(name);
+            }
+
+            speak() {
+                console.log(`${this.name}이/가 야옹 소리를 냅니다.`);
+            }
+        }
+        const cat1 = new Cat('야옹이1');
+        cat1.speak();  //야옹이1가 야옹 소리를 냅니다
+
+        //클래스
+        class Person {
+            //생성자
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+
+            introduce() {
+                console.log(`${this.name}는 나이가 ${this.age}입니다.`);
+            }
+        }
+        const person1 = new person('홍길동', 30);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

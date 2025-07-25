@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      padding: 100px;
+    }
+
+    .container {
+      width: 200px;
+      height: 100px;
+      background-color: royalblue;
+      perspective: 250px;
+    }
+
+    .container .item {
+      width: 100px;
+      height: 100px;
+      background-color: orange;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: brown;
+      font-size: 52px;
+      font-weight: 600;
+      transform: rotateX(180deg);
+      backface-visibility: hidden;
+      /* transform: translateX(40px) translateY(40px); */
+      /* transform: translate(40px, 40px);   위에 있는 코드랑 같은 표현방식임 */
+      /* transform: rotate(45deg); */
+      /* transform: scale(2) translateX(50px); */
+      /* transform: perspective(500px) rotateY(45deg); */
+      /* transform: skew(45deg); */
+      /* transform: translateX(-40px) translateY(-25px) rotateY(45deg); */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="item">가</div>
+  </div>
+</body>
+</html>

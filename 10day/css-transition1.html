@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            transition: 
+                width 1.5s cubic-bezier(.15,.88,1,.49) 3s,
+                background-color 5s ease-in 5s; /*두 가지 옵션을 설정할 수 있음 */
+        }
+
+        .container:hover {
+            width: 300px;
+            background-color: royalblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container"></div>
+</body>
+</html>

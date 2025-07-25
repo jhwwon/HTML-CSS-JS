@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Cards</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center; /* Center the cards */
+        }
+
+        .product-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            width: 250px; /* Adjust card width to fit 5 per row */
+            box-sizing: border-box; /* Include padding and border in the width */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: left; /* Align text to left within card */
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            max-width: 100%;
+            height: 180px; /* Fixed height for thumbnails */
+            object-fit: contain; /* Ensures the entire image is visible, scales down if needed */
+            border-radius: 4px;
+            margin-bottom: 10px;
+            background-color: #e9e9e9; /* Placeholder background */
+        }
+
+        .product-card h3 {
+            margin-top: 0;
+            margin-bottom: 8px;
+            color: #007bff;
+            font-size: 1.1em;
+            height: 3em; /* Limit title height for consistency */
+            overflow: hidden; /* Hide overflowing text */
+            text-overflow: ellipsis; /* Add ellipsis for overflow */
+        }
+
+        .product-card p {
+            margin: 5px 0;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        .product-card .price {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #28a745; /* Green for price */
+            margin-top: auto; /* Push price to the bottom */
+        }
+
+        .product-card .rating {
+            font-size: 0.85em;
+            color: #ffc107; /* Gold for rating */
+        }
+
+        .product-card .category {
+            font-size: 0.8em;
+            color: #777;
+            text-transform: capitalize; /* Capitalize the first letter */
+        }
+    </style>
+</head>
+<body>
+    <h1>Our Products</h1>
+    <div class="container" id="product-cards-container">
+        </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const productCardsContainer = document.getElementById('product-cards-container');
+            const API_URL = 'https://dummyjson.com/products';
+
+            async function fetchProducts() {
+                try {
+                    const response = await fetch(API_URL);
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    const data = await response.json(); // DummyJSON wraps products in a 'products' array
+                    displayProducts(data.products); // Access the 'products' array
+                } catch (error) {
+                    console.error('Error fetching products:', error);
+                    productCardsContainer.innerHTML = '<p>Failed to load products. Please try again later.</p>';
+                }
+            }
+
+            function displayProducts(products) {
+                // You can add a limit here if needed, e.g., products.slice(0, 50);
+                products.forEach(product => {
+                    // Destructuring assignment for product properties
+                    const {
+                        id,
+                        title,
+                        description,
+                        price,
+                        discountPercentage,
+                        rating,
+                        stock,
+                        brand,
+                        category,
+                        thumbnail, // Primary image URL
+                        images     // Array of additional image URLs
+                    } = product;
+
+                    const card = document.createElement('div');
+                    card.classList.add('product-card');
+
+                    card.innerHTML = `
+                        <img src="${thumbnail}" alt="${title}">
+                        <h3>${title}</h3>
+                        <p>Brand: ${brand}</p>
+                        <p class="category">Category: ${category}</p>
+                        <p>Rating: <span class="rating">${rating} ⭐</span></p>
+                        <p class="price">$${price.toFixed(2)}</p>
+                    `;
+                    productCardsContainer.appendChild(card);
+                });
+            }
+
+            fetchProducts();
+        });
+    </script>
+</body>
+</html>
