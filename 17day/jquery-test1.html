@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- local로 jquery 파일 설치 및 세팅 -->
+  <script src="./js/jquery3.5.1.js"></script>
+  <style>
+    .my-class {
+      font-size: 30px;
+    }
+  </style>
+</head>
+<body>
+  <p class="my-class">선택 요소</p>
+  <p id='my-id'>선택 요소</p>
+  <h1>제목1</h1>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+  </ul>
+  <button class="btn">버튼을 클릭하세요</button>
+
+  <br><br>
+  <label for="password">비밀번호:</label>
+  <input type="password" id="password" name="password" value="mySecretPassword"><br><br>
+
+  <script>
+    // jquery 사용
+    let myClass = $('.my-class'); // vanilla -> let myClass = document.querySelect('.my-class');
+    console.log(myClass);
+
+    let myId = $('#my-id');
+    console.log(myId);
+
+    console.log($('h1'));       // 제목1 dom
+    console.log($('ul > li'));  // 1 dom
+
+    $('.my-class').text('새로운 텍스트'); // '선택 요소' 지워지고 '새로운 텍스트'
+    $('.my-class').attr('style', 'color: red'); //스타일 글자 색깔을 빨간색으로 변경
+
+    $('.my-class').hide();
+    $('.my-class').show();
+    $('.btn').attr('style', 'background-color:pink');  // 버튼의 배경색을 pink로 변경
+    $(':password').css('background-color', 'lightyellow');  // 비밀번호 입력칸에 배경색을 lightyellow로 css적용
+  </script>
+</body>
+</html>

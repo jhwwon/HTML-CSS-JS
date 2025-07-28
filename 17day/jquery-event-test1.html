@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./js/jquery3.5.1.js"></script>
+</head>
+<body>
+  <button id="myButton">클릭하세요</button>
+  <p id="result"></p>
+
+  <ul id="myList">
+    <li>항목 1</li>
+    <li>항목 2</li>
+    <li>항목 3</li>
+  </ul>
+
+  <script>
+    
+    $(document).ready(function() {
+      // $('#myButton').on("click", function() {
+      //   $(this).text("클릭되었습니다"); // this는 '#myButton'
+      //   $('#result').text("버튼이 클릭되었습니다.");
+      // });
+
+      function handleClick() {
+        $(this).text('클릭되었습니다');
+        $('#result').text("버튼이 클릭되었습니다.");
+      }
+
+      $('#myButton').on('click', handleClick);
+      $('#myButton').on('click', function(e) {   // 앞에서 만든 handleClick사용하지 않고 overwrite
+        $('#myButton').off('click'. handleClick); // 앞에서 만든 handleClick 이벤트 핸들러를 제거
+        $('#result').text("이벤트 처리기가 제거됨");
+
+        console.log(e);
+      });
+
+      $('#myList').on('click', 'li', function(e) {  // ul안의 li를 클릭을 했을 경우
+        $('#result').text('선택한 항목: ' + $(this).text());
+        console.log(e);
+      });
+    });
+  </script>
+</body>
+</html>
