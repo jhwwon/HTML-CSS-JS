@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery3.5.1.js"></script>
+    <style>
+        .highlight {
+            text-decoration: underline;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <ul id="myList" style="cursor: pointer;">
+        <li>항목1</li>
+        <li>항목2</li>
+        <li>항목3</li>
+        <li>항목4</li>
+    </ul>
+
+    <script>
+        $(document).ready(function() {
+            $('#myList').on('click', 'li', function() {
+                $(this).toggleClass('highlight');  //highlight 클래스 이름이 있으면 빼고 없으면 삽입
+            });
+        });
+    </script>
+</body>
+</html>

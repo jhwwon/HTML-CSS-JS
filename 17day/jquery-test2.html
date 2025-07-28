@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery3.5.1.js"></script>
+</head>
+<body>
+    <h1>Hello, jQuery!</h1>
+    <p class="highlight">This paragraph will be highlighted.</p>
+    <ul>
+        <li>아이템1</li>
+        <li>아이템2</li>
+        <li>아이템3</li>
+    </ul>
+    
+    <button id="myButton">Click me!</button>
+
+    <script>
+        var h1 = $("h1");
+        var paragraph = $('.highlight');
+        var listItems = $("ul li");
+
+        $h1.css("color", "blue");
+        $paragraph.css("background-color", "yellow");
+        $listItems.css("font-weight", "bold");
+
+        $("#myButton").click(function() {
+            alert("Button clicked!");
+        });
+    </script>
+</body>
+</html>
