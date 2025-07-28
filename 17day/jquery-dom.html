@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./js/jquery3.5.1.js"></script>
+</head>
+<body>
+  <div id="myDiv">
+    <p>안녕하세요!</p>
+    <p>jQuery를 배우고 있습니다.</p>
+  </div>
+
+  <button id="myButton">텍스트 변경</button>
+
+  <script>
+    $("#myButton").click(function() {
+      var targetElement = $("#myDiv"); // 대상 요소 선택
+      var paragraphs = targetElement.find("p"); // 자식 p 요소 선택
+
+      paragraphs.each(function() {
+        var currentText = $(this).text(); // 현재 텍스트 가져오기
+        var newText = currentText + " (수정됨)"; // 수정된 텍스트 생성
+        $(this).text(newText); // 텍스트 변경
+      });
+    });
+  </script>
+</body>
+</html>

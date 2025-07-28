@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .product-card {
+      display: flex;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 15px;
+      width: 250px;
+      box-sizing: border-box;
+      flex-direction: column;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+  <h1>Our Products(총 <span id="total"></span>건)</h1>
+  <div class="container" id="product-cards-container">
+    
+  </div>
+
+  <script>
+    async function getProductList() {
+      try {
+        // jQuery AJAX 호출
+        $.ajax({
+          url: 'https://dummyjson.com/products',
+          method: 'GET',
+          dataType: 'json', // 서버에서 반환하는 데이터 타입 (JSON으로 예상)
+          success: function(productListData) {
+            // 브라우저 콘솔에 출력
+            console.log(productListData);
+
+            $('#total').text(productListData.products.length);
+
+            const productCardsContainer = $('#product-cards-container');
+            productListData.products.forEach(product => {
+              // 비구조화 할당을 이용해서 필요한 데이터만 가져오기
+              const { 
+                title, 
+                price, 
+                brand, 
+                thumbnail, 
+                category
+              } = product;
+
+              // 웹페이지 출력하기 위한 태그 생성
+              const card = `
+                <div class="product-card">
+                  <img src="${thumbnail}" alt="${title}" />
+                  <h3>${title}</h3>
+                  <p>Brand: ${brand}</p>
+                </div>
+              `;
+              productCardsContainer.append(card);
+            });
+          },
+          error: function(jqXHR, textStatus, errorThrown) {
+            console.error('Error fetching products:', textStatus, errorThrown);
+          }
+        });
+      } catch(err) {
+          console.error('An unexpected error occurred:', err);
+      }
+    }
+
+    getProductList(); 
+  </script>
+</body>
+</html>
