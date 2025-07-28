@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./js/jquery3.5.1.js"></script>
+</head>
+<body>
+  <button class="myButton">버튼 1</button>
+  <button class="myButton">버튼 2</button>
+  <button class="myButton">버튼 3</button>
+  <p id="result"></p>
+
+  <script>
+    $(document).ready(function() {
+      $('.myButton').on('click', function(e) {
+        let clickedButton = $(this).text();
+        let buttonIndex = $('.myButton').index(this); // 누른 버튼의 index값 가져오기
+        let mouseX = event.pageX;
+        let mouseY = event.pageY;
+
+        var resultText = "클릭된 버튼: " + clickedButton + "<br>";
+        resultText += "버튼 인덱스: " + buttonIndex + "<br>";
+        resultText += "마우스 좌표: (" + mouseX + ", " + mouseY + ")";
+
+        $('#result').html(resultText);
+      });
+    });
+  </script>
+</body>
+</html>

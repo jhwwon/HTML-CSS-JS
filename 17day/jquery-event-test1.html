@@ -17,7 +17,6 @@
   </ul>
 
   <script>
-    
     $(document).ready(function() {
       // $('#myButton').on("click", function() {
       //   $(this).text("클릭되었습니다"); // this는 '#myButton'
@@ -33,8 +32,14 @@
       $('#myButton').on('click', function(e) {   // 앞에서 만든 handleClick사용하지 않고 overwrite
         $('#myButton').off('click'. handleClick); // 앞에서 만든 handleClick 이벤트 핸들러를 제거
         $('#result').text("이벤트 처리기가 제거됨");
-
+        
         console.log(e);
+
+        let mouseX = e.pageX;   // 마우스 클릭한 좌표 X픽셀 값
+        let mouseY = e.pageY;   // 마우스 클릭한 좌표 Y픽셀 값
+
+        $('#result').text('마우스<br>좌표: (' + mouseX + ", " + mouseY + ")");    // <br>태그는 텍스트로 인식
+        //$('#result').html('마우스<br>좌표: (' + mouseX + ", " + mouseY + ")")   // <br>태그는 html로 인식
       });
 
       $('#myList').on('click', 'li', function(e) {  // ul안의 li를 클릭을 했을 경우

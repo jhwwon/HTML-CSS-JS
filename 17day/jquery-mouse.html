@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./js/jquery3.5.1.js"></script>
+  <style>
+    body {
+      height: 1000px;
+    }
+  </style>
+</head>
+<body>
+  <p id="result"></p>
+  <p id="result2"></p>
+  <p id="result3"></p>
+
+  <a href="https://www.naver.com" id="myLink">링크 클릭</a>
+
+  <div id="outerDiv" style="height: 200px; background-color: red;">
+    <div id="innerDiv" style="height: 100px; background-color: yellow; ">
+      <button id="myButton">버튼</button>
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      // $('body').on('click', function(e) {
+      //   // 클릭한 마우스 좌표
+      //   let mouseX = e.pageX;
+      //   let mouseY = e.pageY;
+      //   let textMouseCoordinate = '클릭한 마우스 좌표값: ' + mouseX + ", " + mouseY;
+        
+      //   $('#result').html(textMouseCoordinate);
+      // });
+
+      $('#myLink').on('click', function(e) {
+        e.preventDefault();   // 기본 href링크 동작하지 않도록 하기
+        alert('링크 클릭 이벤트가 발생했습니다. 기본 동작이 차단됨');
+      });
+
+      $("#outerDiv").on("click", function() {
+        $("#result3").text("outerDiv가 클릭되었습니다.");
+        $("#result").text("");
+      });
+
+      $("#innerDiv").on("click", function() {
+        event.stopPropagation();
+        $("#result2").text("innerDiv가 클릭되었습니다.");
+        $("#result3").text("");
+      });
+
+      $("#myButton").on("click", function(event) {
+        event.stopPropagation();
+        $("#result").text("버튼이 클릭되었습니다.");
+        // $("#result2").text("");
+        // $("#result3").text("");
+      });
+    });
+  </script>
+</body>
+</html>

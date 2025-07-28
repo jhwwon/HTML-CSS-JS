@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./js/jquery3.5.1.js"></script>
+</head>
+<body>
+  <button id="myButton">데이터 가져오기</button>
+  <div id="result"></div>
+
+  <script>
+    $(document).ready(function() {
+      $('#myButton').on("click", function() {
+        $.ajax({  // jquery를 사용한 비동기 통신 메소드(ajax)
+          url: 'https://dummyjson.com/products',
+          method: 'GET',
+          dataType: 'json',
+          success: function(response) {
+            $('#result').text("response: " + JSON.stringify(response));
+          },
+          error: function(error) {
+            $('#result').text("데이터를 가져오는 데 실패");
+          }
+        });
+      });
+    })
+  </script>
+</body>
+</html>

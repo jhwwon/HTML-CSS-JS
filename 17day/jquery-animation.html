@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #myDiv {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      margin-top: 20px;
+      /* display: none; */
+    }
+  </style>
+  <script src="./js/jquery3.5.1.js"></script>
+</head>
+<body>
+  <button id="myButton">클릭</button>
+  <div id="myDiv">애니메이션 효과</div>
+
+  <script>
+    $(document).ready(function() {
+      $('#myButton').click(function() {
+        console.log('mydiv:', $('#myDiv').css('display'));
+
+        if($('#myDiv').css('display') === 'block') {  // myDiv의 display값이 
+          $('#myDiv').fadeOut(500, function() {   // 0.5초동안 div영역이 서서히 나옴(in)
+            //$(this).slideUp(500);  // this는 myDiv, fade 500ms동안 실행한 뒤에 slideUp이 실행
+            // $(this).show();
+          });
+        } else {
+          $('#myDiv').fadeIn(500, function() {   // 0.5초동안 div영역이 서서히 사라짐(out)
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
