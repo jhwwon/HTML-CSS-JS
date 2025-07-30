@@ -20,8 +20,8 @@
   <div id="myDiv">애니메이션 효과</div>
 
   <script>
-    $(document).ready(function() {
-      $('#myButton').click(function() {
+    $(document).ready(function() {  // HTML 문서가 완전히 로드되면 실행할 함수(페이지 로드 시 딱 한번만 실행)
+      $('#myButton').click(function() {  //버튼이 클릭되었을 때 실행할 함수
         console.log('mydiv:', $('#myDiv').css('display'));
 
         if($('#myDiv').css('display') === 'block') {  // myDiv의 display값이 
