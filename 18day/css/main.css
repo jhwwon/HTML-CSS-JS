@@ -1,10 +1,29 @@
+/* 데스크탑 화면일 경우에는 모바일 화면을 없애기 */
+/* @media (min-width: 501px) {
+  .mobile {
+    display: none;
+  }
+
+  .desktop {
+    display: block;
+  }
+} */
+/* 모바일 화면일 경우에는 데스크탑 화면을 없애기 */
+/* @media (max-width: 500px) {
+  .desktop {
+    display: none;
+  }
+  .mobile {
+    display: block;
+  }
+} */
+
 body {
   font-family: 'Nanum Gothic', sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.4;
   color: #333;
-  height: 3000px;
 }
 
 a {
@@ -19,6 +38,24 @@ img {
   width: 1100px;
   margin: 0 auto;
   position: relative;
+}
+
+.btn {
+  padding: 10px;
+  border: 2px solid #592B18;
+  border-radius: 4px;
+  color: #592B18;
+  font-size: 16px;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-weight: 700;
+  text-align: center;
+  transition: .4s;
+  display: block;
+}
+.btn:hover {
+  background-color: #592B18;
+  color: #fff;
 }
 
 
@@ -249,24 +286,9 @@ header .badges .badge {
 }
 .visual .title .btn {
   width: 130px;
-  padding: 10px;
-  border: 2px solid #592B18;
-  border-radius: 4px;
-  color: #592B18;
-  font-size: 16px;
-  text-align: center;
-  display: block;
-  box-sizing: border-box;
-  cursor: pointer;
-  font-weight: 700;
-  transition: .4s;
   position: absolute;
   top: 259px;
   left: 173px;
-}
-.visual .btn:hover {
-  background-color: #592B18;
-  color: #fff;
 }
 
 .visual .fade-in {
@@ -372,7 +394,13 @@ header .badges .badge {
   height: 693px;
   background-color: #f6f5ef;
   position: relative;
+  transition: height .4s;
+  overflow: hidden;
 }
+.notice .promotion.hide {
+  height: 0px;
+}
+
 .notice .promotion .swiper-container {
   width: calc(819px * 3 + 20px);  /* 2477px */
   height: 553px;
@@ -385,6 +413,7 @@ header .badges .badge {
 }
 .notice .promotion .swiper-slide {
   opacity: 0.5;
+  position: relative;
 }
 .notice .promotion .swiper-slide-active {
   opacity: 1;
@@ -415,7 +444,6 @@ header .badges .badge {
   background-color: #333;
   color: #fff;
 }
-
 .notice .promotion .swiper-prev {
   left: 50%;
   margin-left: -480px;
@@ -424,16 +452,404 @@ header .badges .badge {
   right: 50%;
   margin-right: -480px;
 }
+.notice .promotion .swiper-slide .btn {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 130px;
+}
+.notice .promotion .swiper-pagination {
+  left: 0;
+  right: 0;
+  bottom: 30px;
+}
+
+.notice .promotion .swiper-pagination .swiper-pagination-bullet {
+  background-color: transparent;
+  background-image: url("../images/promotion_slide_pager.png");
+  width: 12px;
+  height: 12px;
+  margin-right: 6px;
+  outline: none;
+}
+.notice .promotion .swiper-pagination .swiper-pagination-bullet:last-child {
+  margin-right: 0px;
+}
+.notice .promotion .swiper-pagination .swiper-pagination-bullet-active {
+  background-image: url("../images/promotion_slide_pager_on.png");
+}
+
+/* reward 섹션 */
+.rewards {
+  position: relative;
+}
+.rewards .bg-left {
+  background-color: #272727;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+}
+.rewards .bg-right {
+  background-color: #d5c798;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+}
+.rewards .inner {
+  background-image: url("../images/rewards.jpg");
+  height: 241px;
+}
+.rewards .btn-group {
+  width: 250px;
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  right: 0px;
+  bottom: 24px;
+}
+.rewards .btn-group .sign-up {
+  margin-right: 10px;
+  width: 130px;
+  border: 1px solid #333;
+}
+.btn--reverse {
+  background-color: #333;
+  color: #fff;
+}
+.btn--reverse:hover {
+  background-color: transparent;
+  color: #333;
+}
+.rewards .btn-group .sign-in {
+  width: 110px;
+  color: #333;
+  border: 1px solid #333;
+}
+.rewards .btn-group .sign-in:hover {
+  color: #fff;
+  background-color: #333;
+}
+.rewards .btn-group .gift {
+  margin-top: 10px;
+  flex-grow: 1;
+  color: #333;
+  border: 1px solid #333;
+}
+.rewards .btn-group .gift:hover {
+  color: #fff;
+  background-color: #333;
+}
 
 /* section5 */
 .youtube {
   /* height: 500px; */
-  background-color: green;
+  /* background-color: green; */
+  position: relative;
+  height: 700px;
+  background-color: #333;
+  overflow: hidden;
+}
+.youtube .youtube__area {
+  width: 1920px;
+  background-color: orange;
+  position: absolute;
+  left: 50%;
+  margin-left: calc(1920px / -2);
+  top: 50%;
+  margin-top: calc(1920px * 9 / 16 / -2);
+}
+.youtube .youtube__area::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 0;
+  padding-top: 56.25%;
+}
+.youtube .youtube__cover {
+  background-image: url("../images/video_cover_pattern.png");
+  background-color: rgba(0,0,0,.3);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.youtube #player {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.youtube .inner {
+  height: 700px;
+}
+.youtube .floating {
+  position: absolute;  
+}
+.youtube .floating1 {
+  top: 50px;
+  left: 0px;
+}
+.youtube .floating2 {
+  top: 350px;
+  left: 150px;
+}
+.youtube .floating3 {
+  bottom: -200px;
+  right: 0px;
 }
 
 /* section6 */
 .season-product {
   /* height: 500px; */
-  background-color: brown;
+  /* background-color: orange; */
+  background-image: url("../images/season_product_bg.jpg");
+  /* position: relative; */
+}
+.season-product .inner {
+  height: 400px;
+  /* display: flex; */
+}
+.season-product .text-group {
+  position: absolute;
+  top: 110px;
+  right: 100px;
+}
+.season-product .text-group .title {
+  margin-bottom: 10px;
+}
+.season-product .text-group .description{
+  margin-bottom: 15px;
+}
+.season-product .text-group .more {
+  width: 130px;
+}
+.season-product .text-group .more .btn {
+  color: #333;
+  border-color: #333;
+  background-color: transparent;
+}
+.season-product .text-group .more .btn:hover {
+  color: #fff;
+  border-color: #333;
+  background-color: #333;
+}
+.season-product .floating3 {
+  position: absolute;
+  top: -200px;
+  right: 0px;
 }
 
+.reserve-coffee {
+  background-image: url("../images/reserve_bg.jpg");
+}
+.reserve-coffee .inner {
+  height: 400px;
+}
+.reserve-coffee .inner .reserve-logo {
+  position: absolute;
+  top: 110px;
+  left: 0px;
+}
+.reserve-coffee .inner .text-group {
+  position: absolute;
+  top: 124px;
+  left: 208px;
+}
+.reserve-coffee .inner .text-group .more {
+  width: 130px;
+}
+.reserve-coffee .inner .text-group .more .btn {
+  color: #D9AA8A;
+  border-color: #D9AA8A;
+}
+.reserve-coffee .inner .text-group .more .btn:hover {
+  color: #fff;
+  background-color: #D9AA8A;
+}
+.reserve-coffee .inner .product {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+.pick-your-favorite {
+  /* background-color: #000; */
+  background-image: url('../images/favorite_bg.jpg');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.pick-your-favorite .inner {
+  padding: 110px 0;
+}
+.pick-your-favorite .inner .text-group {
+  /* background-color: orange; */
+  display: flex;
+  width: 362px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.pick-your-favorite .inner .text-group .title {
+  margin-bottom: 40px;
+}
+.pick-your-favorite .inner .text-group .description {
+  margin-bottom: 40px;
+}
+.pick-your-favorite .inner .text-group .more {
+  
+}
+.pick-your-favorite .inner .text-group .more .btn{
+  color: #fff;
+  border-color: #fff;
+  width: 130px; 
+}
+
+.reserve-store {
+  background-image: url('../images/reserve_store_bg.jpg');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.reserve-store .inner {
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.reserve-store .inner .medal {
+  width: 334px;
+  height: 334px;
+  perspective: 600px;
+}
+.reserve-store .inner .medal .front,
+.reserve-store .inner .medal .back {
+  width: 334px;
+  height: 334px;
+  backface-visibility: hidden;
+  transition: 1s;
+}
+.reserve-store .inner .medal .front {
+  position: absolute;
+  transform: rotateY(0deg);
+}
+.reserve-store .inner .medal:hover .front {
+  transform: rotateY(180deg);
+}
+.reserve-store .inner .medal .back {
+  transform: rotateY(-180deg);
+}
+.reserve-store .inner .medal:hover .back {
+  transform: rotateY(0deg);
+}
+.reserve-store .medal .back .btn {
+  position: absolute;
+  top: 240px;
+  left: 0px;
+  right: 0px;
+  margin: 0 auto;
+  width: 130px;
+}
+
+.find-store {
+  background-image: url('../images/find_store_bg.jpg');
+}
+.find-store .inner {
+  height: 400px;
+}
+.find-store .texture1 {
+  position: absolute;
+  top: 0;
+  left: 400px;
+}
+.find-store .texture2 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.find-store .picture1 {
+  position: absolute;
+  top: -60px;
+  left: 0;
+  border-radius: 50%;
+}
+.find-store .picture2 {
+  position: absolute;
+  top: 150px;
+  left: 250px;
+  border-radius: 50%;
+}
+.find-store .text-group {
+  position: absolute;
+  top: 120px;
+  left: 550px;
+}
+.find-store .text-group .title{
+  margin-bottom: 20px;
+}
+.find-store .text-group .description{
+  margin-bottom: 20px;
+}
+.find-store .text-group .more {
+  width: 130px;
+}
+.find-store .text-group .more .btn {
+  color: #333;
+  border-color: #333;
+}
+
+.awards {
+  background-color: #272727;
+}
+.awards .inner {
+  padding: 40px 0;
+}
+.awards .swiper-container {
+  width: 100%;
+  height: 40px;
+}
+/* .awards .swiper-wrapper {
+  
+}
+.awards .swiper-slide {
+
+} */
+.awards .swiper-prev,
+.awards .swiper-next {
+  width: 42px;
+  height: 42px;
+  margin: auto 0;
+  border: 2px solid #fff;
+  color: #fff;
+  opacity: 0.3;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.awards .swiper-prev:hover,
+.awards .swiper-next:hover {
+  background-color: #fff;
+  color: #333;
+}
+.awards .swiper-prev {
+  left: -100px;
+}
+.awards .swiper-next {
+  right: -100px;
+}
